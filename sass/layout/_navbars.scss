@@ -114,8 +114,10 @@
 
 // Input line color
 .navbar-dark form {
+
     input[type=text] {
         border-bottom: 1px solid #fff;
+    
     }
     .form-control {
         color: #fff;
@@ -124,6 +126,7 @@
             font-weight: 300;
         }
     }
+    
 }
 
 .navbar-light form {
