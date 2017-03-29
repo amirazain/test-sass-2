@@ -23,7 +23,6 @@ v.0 Combine between MDB and Materialize CSS
 @import "components/animations";
 @import "components/waves";
 @import "components/buttons";  
-@import "components/forms-basic";
 @import "components/cards-basic";  
 @import "components/hover-effects";  
 @import "components/carousels-basic";
@@ -31,6 +30,8 @@ v.0 Combine between MDB and Materialize CSS
 // Layout 
 @import "layout/navbars";  
 @import "layout/footer";  
+@import "layout/forms-basic";
+
 
 //Pages
 
