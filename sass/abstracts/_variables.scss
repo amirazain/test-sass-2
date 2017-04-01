@@ -11,7 +11,7 @@ $success-color: color("green", "base") !default;
 $link-color: color("light-blue", "darken-1") !default;
 
 /*** Fonts ***/
-$roboto-font-path: "../font/roboto/" !default;
+$roboto-font-path: "../fonts/roboto/" !default;
 
 /*** Typography ***/
 $off-black: rgba(0, 0, 0, 0.87) !default;
@@ -76,6 +76,24 @@ $button-height: 36px !default;
 $button-font-size-shared: 1.3rem !default;
 $button-large-icon-font-size: 1.6rem !default; 
 $button-line-height: 36px !default;
+
+
+
+$button-border: none !default;
+$button-background-focus: lighten($secondary-color, 4%) !default;
+$button-font-size: 1.3rem !default;
+$button-padding: 0 2rem !default;
+$button-radius: 2px !default;
+
+// Floating buttons
+$button-floating-background: $secondary-color !default;
+$button-floating-background-hover: $button-floating-background !default;
+$button-floating-color: #fff !default;
+// $button-floating-size: 40px !default;
+$button-floating-radius: 50% !default;
+// Large buttons
+// $button-large-icon-font-size: 1.6rem !default;
+$button-large-height: $button-height * 3.5 !default;
 
 // Grid Variables
 $num-cols: 12 !default;
