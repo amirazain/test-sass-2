@@ -4,11 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Test Sass Design</title>
+    <link rel="stylesheet" href="css/fonts/font-awesome.min.css">
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
         crossorigin="anonymous">
     <link rel="stylesheet" href="css/style/main.css">
 
-    <link rel="stylesheet" href="css/fonts/font-awesome.min.css">
 
 
 </head>
@@ -61,7 +62,7 @@
                 <div class="col-12">
                     <h4>Bootstrap</h4>
                     <hr>
-                    <button type="button" class="btn btn-primary"> Primary</button>
+                    <a class="btn btn-primary waves-light"> Primary</a>
                     <button type="button" class="btn btn-secondary"> Secondary</button>
                     <button type="button" class="btn btn-default"> Default</button>
                     <button type="button" class="btn btn-success"> Success</button>
@@ -96,34 +97,148 @@
                 <h4>Button Floating</h4>
                 <div class="col-12">
                     <button type="button" class="btn-floating btn-large "> <i class="fa fa-bolt" aria-hidden="true"></i></button>
-                                        <button type="button" class="btn-floating btn-medium red "> <i class="fa fa-bolt" aria-hidden="true"></i></button>
-                                                            <button type="button" class="btn-floating btn-small blue-grey "> <i class="fa fa-bolt" aria-hidden="true"></i></button>
+                    <button type="button" class="btn-floating btn-medium red "> <i class="fa fa-bolt" aria-hidden="true"></i></button>
+                    <button type="button" class="btn-floating btn-small blue-grey "> <i class="fa fa-bolt" aria-hidden="true"></i></button>
+                    <a class="btn-floating btn-large "> <i class="fa fa-bolt" aria-hidden="true"></i></a>
+                    <a class="btn-floating btn-medium "> <i class="fa fa-bolt" aria-hidden="true"></i></a>
+
+                    <!--<button type="button" class="btn btn-floating "> <i class="fa fa-bolt" aria-hidden="true"></i></button>-->
+
                 </div>
-                <i class="fa fa-font" aria-hidden="true"></i>
             </div>
 
             <div class="row">
-                <h4>Button Flat</h4>
+                <h4>Button Flat
+                    <!--Remove it -->
+                </h4>
                 <div class="col-12">
-                    <button type="button" class="btn-flat waves-effect "> Flat </button>
+                    <a href="#" class="btn btn-flat blue-grey"> Flat </a>
                 </div>
             </div>
 
+            <div class="row">
+                <h4>Fixed Action Button</h4>
+                <div class="col-12">
+                    <div class="clearfix m-4"></div>
 
+                    <div style="position: relative; height: 70px;">
+                        <h4>Vertical FAB</h4>
+                        <div class="fixed-action-btn" style="position: absolute; right: 24px;">
+                            <a class="btn-floating btn-large green">
+                                <i class="fa fa-pencil"></i>
+                            </a>
+
+                            <ul>
+                                <li><a class="btn-floating btn-small red"><i class="fa fa-star"></i></a></li>
+                                <li><a class="btn-floating btn-small yellow darken-1"><i class="fa fa-user"></i></a></li>
+                                <li><a class="btn-floating btn-small green"><i class="fa fa-envelope"></i></a></li>
+                                <li><a class="btn-floating btn-small blue"><i class="fa fa-shopping-cart"></i></a></li>
+                            </ul>
+
+                        </div>
+                    </div>
+
+                    <div class="clearfix m-4"></div>
+
+                    <div style="position: relative; height: 70px;">
+                        <h4>Horizontal FAB</h4>
+                        <div class="fixed-action-btn horizontal " style="position: absolute; display: inline-block; ">
+                            <a class="btn-floating btn-medium red">
+                                <i class="fa fa-pencil"></i>
+                            </a>
+
+                            <ul>
+                                <li><a class="btn-floating btn-small red"><i class="fa fa-star"></i></a></li>
+                                <li><a class="btn-floating btn-small yellow darken-1"><i class="fa fa-user"></i></a></li>
+                                <li><a class="btn-floating btn-small green"><i class="fa fa-envelope"></i></a></li>
+                                <li><a class="btn-floating btn-small blue"><i class="fa fa-shopping-cart"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="clearfix m-4"></div>
+
+                    <div style="position: relative; height: 70px;">
+                        <h4>Click</h4>
+                        <div class="fixed-action-btn click-to-toggle " style="position: absolute;">
+                            <a class="btn-floating btn-large red">
+                                <i class="fa fa-pencil"></i>
+                            </a>
+
+                            <ul>
+                                <li><a class="btn-floating btn-small red"><i class="fa fa-star"></i></a></li>
+                                <li><a class="btn-floating btn-small yellow darken-1"><i class="fa fa-user"></i></a></li>
+                                <li><a class="btn-floating btn-small green"><i class="fa fa-envelope"></i></a></li>
+                                <li><a class="btn-floating btn-small blue"><i class="fa fa-shopping-cart"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="clearfix m-4"></div>
+
+                </div>
+
+                <!--<button type="button" class="btn-floating btn-medium red "> <i class="fa fa-bolt" aria-hidden="true"></i></button>-->
+                <!--<button type="button" class="btn-floating btn-small blue-grey "> <i class="fa fa-bolt" aria-hidden="true"></i></button>-->
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <section id="dropdown">
+        <div class="container">
+            <div class="row">
+                <div class="form-inline">
+                    <fieldset class="form-group">
+                        <input type="checkbox" id="checkbox1">
+                        <label for="checkbox1">Normal Uncheck</label>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <input type="checkbox" id="checkbox2" checked="checked">
+                        <label for="checkbox2">Normal Check</label>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <input type="checkbox" class="filled-in" id="filled-in-box" />
+                        <label for="filled-in-box">Filled in</label>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <input type="checkbox" class="filled-in" id="filled-in-box" checked="checked" />
+                        <label for="filled-in-box">Filled in</label>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <input type="checkbox" class="filled-in" id="filled-in-box" disabled checked="checked" />
+                        <label for="filled-in-box">Filled in</label>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="file-input">
+        <div class="container">
+            <form>
+                <div class="file-field">
+                    <div class="btn btn-primary btn-sm">
+                        <span>Choose file</span>
+                        <input type="file">
+                    </div>
+                    <div class="file-path-wrapper">
+                        <input class="file-path validate" type="text" placeholder="Upload your file">
+                    </div>
+                </div>
+            </form>
         </div>
     </section>
 
 
 
 
-
-    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js">
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
         crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
         crossorigin="anonymous"></script>
-   <script type="text/javascript" src="js/mdb.min.js"></script>
+    <script type="text/javascript" src="mdb.js"></script>
+
 </body>
 
 </html>
