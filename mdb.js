@@ -6533,11 +6533,11 @@ Waves.init(); /* FORMS */
 		});
 
 		// Toolbar transition behaviour.
-		// $(document).on('click.fabToolbar', '.fixed-action-btn.toolbar > a', function(e) {
-		//   var $this = $(this);
-		//   var $menu = $this.parent();
-		//   FABtoToolbar($menu);
-		// });
+		$(document).on('click.fabToolbar', '.fixed-action-btn.toolbar > a', function(e) {
+		  var $this = $(this);
+		  var $menu = $this.parent();
+		  FABtoToolbar($menu);
+		});
 
 	});
 
