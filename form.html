@@ -1,0 +1,369 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Test Sass Design</title>
+    <link rel="stylesheet" href="css/fonts/font-awesome.min.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style/main.css">
+
+
+
+</head>
+
+<body>
+
+    <!--Standard Input-->
+    <section id="inputntextarea">
+        <div class="container">
+            <!--Standard Input-->
+            <div class="row flex-column my-3">
+                <h4>Basic Example</h4>
+                <div class="md-form my-3">
+                    <input type="text" id="form1" class="form-control col-5">
+                    <label for="form1" class="">Example label</label>
+                </div>
+            </div>
+            <!--With Prefixes-->
+            <div class="row flex-column my-3">
+                <h4>With Prefixes</h4>
+                <div class="md-form my-3">
+                    <i class="fa fa-envelope prefix"></i>
+                    <input type="text" id="form2" class="form-control col-5">
+                    <label for="form2">Example label</label>
+                </div>
+            </div>
+            <!--Placeholder-->
+            <div class="row flex-column my-3">
+                <h4>With PlaceHolder</h4>
+                <div class="md-form my-3">
+                    <input placeholder="Placeholder" type="text" id="form5" class="form-control">
+                    <label for="form5">Example label</label>
+                </div>
+            </div>
+            <!--Prefilling Input-->
+            <div class="row flex-column my-3">
+                <h4>With PlaceHolder</h4>
+                <div class="md-form my-3">
+                    <input value="John Doe" type="text" id="form6" class="form-control">
+                    <label class="active" for="form6">Example label</label>
+                </div>
+            </div>
+            <!--Error Message Correct-->
+            <div class="row flex-column my-3">
+                <h4>Error or Success Messages</h4>
+                <!--Email validation-->
+                <div class="md-form my-3">
+                    <i class="fa fa-envelope prefix"></i>
+                    <input type="email" id="form9" class="form-control validate">
+                    <label for="form9" data-error="wrong" data-success="right">Type your email</label>
+                </div>
+
+                <!--Password validation-->
+                <div class="md-form my-3">
+                    <i class="fa fa-lock prefix"></i>
+                    <input type="password" id="form10" class="form-control validate">
+                    <label for="form10" data-error="wrong" data-success="right">Type your password</label>
+                </div>
+            </div>
+
+            <div class="row flex-column my-3">
+                <h4> Disabled Inputs</h4>
+                <div class="md-form  my-3">
+                    <input type="text" id="form11" class="form-control" disabled>
+                    <label for="form11" class="disabled">Example label</label>
+                </div>
+            </div>
+
+            <div class="row flex-column my-3">
+                <div class="md-form my-3">
+                    <textarea type="text" id="form7" class="md-textarea"></textarea>
+                    <label for="form7">Basic textarea</label>
+                </div>
+
+                <!--Textarea with icon prefix-->
+                <div class="md-form my-3">
+                    <i class="fa fa-pencil prefix"></i>
+                    <textarea type="text" id="form8" class="md-textarea"></textarea>
+                    <label for="form8">Icon Prefix</label>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--Checkbox-->
+    <section id="checkbox">
+        <div class="container">
+            <!--Form Inline CheckBox-->
+            <div class="row flex-column">
+                <h4>Form Inline Checkbox</h4>
+                <div class="form-inline">
+                    <fieldset class="form-group">
+                        <input type="checkbox" id="checkbox1">
+                        <label for="checkbox1">Normal Uncheck</label>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <input type="checkbox" id="checkbox2" checked="checked">
+                        <label for="checkbox2">Normal Check</label>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <input type="checkbox" class="filled-in" id="filled-in-box" />
+                        <label for="filled-in-box">Filled in Uncheck</label>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <input type="checkbox" class="filled-in" id="filled-in-box" checked="checked" />
+                        <label for="filled-in-box">Filled in Check</label>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <input type="checkbox" class="filled-in" id="filled-in-box" disabled />
+                        <label for="filled-in-box">Disabled</label>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--File Forms-->
+    <section id="file-input">
+        <div class="container">
+            <div class="row flex-column">
+                <h4>Single File</h4>
+                <form>
+                    <div class="file-field">
+                        <div class="btn btn-primary btn-sm ">
+                            <span>Choose file</span>
+                            <input type="file">
+                        </div>
+                        <div class="file-path-wrapper">
+                            <input class="file-path validate" type="text" placeholder="Upload your file">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="row flex-column">
+                <h4>Multiple file</h4>
+                <form action="#">
+                    <div class="file-field">
+                        <div class="btn btn-primary btn-sm">
+                            <span>Choose files</span>
+                            <input type="file" multiple>
+                        </div>
+                        <div class="file-path-wrapper">
+                            <input class="file-path validate" type="text" placeholder="Upload one or more files">
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="switch">
+        <div class="container">
+            <div class="row flex-column">
+                <h4>Switch</h4>
+                <div class="switch">
+                    <label> 
+                        Off
+                        <input type="checkbox">
+                        <span class="lever"></span>
+                        On
+                    </label>
+                </div>
+            </div>
+
+            <div class="row flex-column">
+                <h4>Disabled Switch</h4>
+                <!-- Disabled Switch -->
+                <div class="switch">
+                    <label>
+                    Off
+                    <input disabled type="checkbox">
+                    <span class="lever"></span>
+                    On
+                    </label>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!--Radio-->
+    <section id="radio">
+        <div class="container">
+            <div class="row flex-column">
+                <h4>RadioButton</h4>
+                <div class="form-inline">
+                    <h4>Normal Filled-in</h4>
+                    <fieldset class="form-group">
+                        <input name="group1" type="radio" id="radio1">
+                        <label for="radio1">Option 1</label>
+                    </fieldset>
+
+                    <fieldset class="form-group">
+                        <input name="group1" type="radio" id="radio2">
+                        <label for="radio2">Option 2</label>
+                    </fieldset>
+                </div>
+                <div class="form-inline">
+                    <h4> Circle</h4>
+                    <fieldset class="form-group">
+                        <input name="group2" type="radio" class="with-gap" id="radio4">
+                        <label for="radio4">Option 1</label>
+                    </fieldset>
+
+                    <fieldset class="form-group">
+                        <input name="group2" type="radio" class="with-gap" id="radio5">
+                        <label for="radio5">Option 2</label>
+                    </fieldset>
+
+                    <fieldset class="form-group">
+                        <input name="group2" type="radio" class="with-gap" id="radio6">
+                        <label for="radio6">Option 3</label>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--SELECT-->
+    <section id="select">
+        <div class="container">
+            <div class="row">
+                <h5><b>"Select"</b> Component [Will Be Continued] </h5>
+            </div>
+        </div>
+        <!--<div class="container">
+            <div class="row">
+                <div class="col-6">
+                    <select class="mdb-select">
+                        <option value="" disabled selected>Choose your option</option>
+                        <option value="1">Option 1</option>
+                        <option value="2">Option 2</option>
+                        <option value="3">Option 3</option>
+                    </select>
+                    <label>Example label</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <select class="mdb-select" multiple>
+                        <option value="" disabled selected>Choose your option</option>
+                        <option value="1">Option 1</option>
+                        <option value="2">Option 2</option>
+                        <option value="3">Option 3</option>
+                    </select>
+                    <label>Materialize Multiple Select</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-6">
+                    <select  class="mdb-select" multiple>
+                    <optgroup label="team 1">
+                        <option value="1">Option 1</option>
+                        <option value="2">Option 2</option>
+                    </optgroup>
+                    <optgroup label="team 2">
+                        <option value="3">Option 3</option>
+                        <option value="4">Option 4</option>
+                    </optgroup>
+                    </select>
+                    <label>Optgroups</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <select class="mdb-select" >
+                        <option value="" disabled selected>Choose your option</option>
+                        <option value="" data-icon="img/user/man.svg" class="rounded-circle">example 1</option>
+                        <option value="" data-icon="img/user/team.svg" class="rounded-circle">example 2</option>
+                        <option value="" data-icon="img/user/graduate.svg" class="rounded-circle">example 3</option>
+                    </select>
+                <label>Images in select</label>
+            </div>
+            <div class="row">
+                <select class="mdb-select" >
+                        <option value="" disabled selected>Choose your option</option>
+                        <option value="" data-icon="img/user/man.svg" class="float-left rounded-circle">example 1</option>
+                        <option value="" data-icon="img/user/team.svg" class="float-left rounded-circle">example 2</option>
+                        <option value="" data-icon="img/user/graduate.svg" class="float-left rounded-circle">example 3</option>
+                    </select>
+                <label>Images in select</label>
+            </div>
+            <div class="row">
+                <label>Browser Select</label>
+                <select class="browser-default">
+                    <option value="" disabled selected>Choose your option</option>
+                    <option value="1">Option 1</option>
+                    <option value="2">Option 2</option>
+                    <option value="3">Option 3</option>
+                </select>
+            </div>
+        </div>-->
+    </section>
+
+    <!--RANGE-->
+    <section id="range">
+        <div class="container">
+            <div class="row">
+                <div class="col-6">
+                    <h5>Range</h5>
+                </div>
+                <div class="col-6">
+                    <form class="range-field">
+                        <input type="range" min="0" max="100" />
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--Character Counter-->
+    <section id="char-count">
+        <div class="container">
+            <div class="row">
+                <h5><b>"Character Counter"</b> [Will Be Continued]</h5>
+                <!--<div class="col-6">
+                    <div class="md-form">
+                        <input id="input_text" type="text" length="10">
+                        <label for="input_text">Input text</label>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="md-form">
+                        <textarea id="textarea1" class="md-textarea" length="120"></textarea>
+                        <label for="textarea1">Type your text</label>
+                    </div>
+                </div>-->
+            </div>
+        </div>
+    </section>
+
+
+    <script type="text/javascript" src="js/bin/jquery-3.1.1.min.js"></script>
+    <!--<script type="text/javascript" src="js/bin/jquery-2.2.3.min.js"></script>-->
+    <script type="text/javascript" src="js/bin/tether.min.js"></script>
+    <!--<script type="text/javascript" src="js/hammer.min.js"></script>-->
+
+
+    <script type="text/javascript" src="js/bin/bootstrap.min.js"></script>
+    <!--<script type="text/javascript" src="js/jquery.hammer.js"></script>-->
+
+    <script type="text/javascript" src="mdb.js"></script>
+    <!--<script>
+        // Material Select Initialization
+        $(document).ready(function () {
+            $('.mdb-select').material_select();
+        });
+    </script>-->
+    <!--<script>
+        $(document).ready(function () {
+            $('input#input_text, textarea#textarea1').characterCounter();
+        });
+    </script>-->
+</body>
+
+</html>

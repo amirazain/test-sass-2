@@ -57,9 +57,9 @@
 }
 
 // // Input field specificity bugfix
-// .input-field.col .dropdown-content [type="checkbox"] + label {
-//   top: 1px;
-//   left: 0;
-//   height: 18px;
-// }
+ .select-wrapper .dropdown-content [type="checkbox"] ~ label {
+  top: 1px;
+  left: 0;
+  height: 18px;
+}
 
