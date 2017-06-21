@@ -109,3 +109,9 @@ $datepicker-year: rgba(255, 255, 255, .4) !default;
 $datepicker-focus: rgba(0,0,0, .05) !default;
 $datepicker-selected: $primary-color !default;
 $datepicker-selected-outfocus: desaturate(lighten($primary-color, 35%), 15%) !default;
+
+// Chip
+$chip-bg-color: #e4e4e4 !default;
+$chip-border-color: #9e9e9e !default;
+$chip-selected-color: #26a69a !default;
+$chip-margin: 5px !default;
