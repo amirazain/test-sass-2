@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
         crossorigin="anonymous">
     <link rel="stylesheet" href="css/style/main.css">
+    <!--<link rel="stylesheet" href="mdb.css">-->
 
 
 
@@ -230,24 +231,64 @@
 
     <!--SELECT-->
     <section id="select">
-        <div class="container">
+        <div class="container" hidden>
             <div class="row">
                 <h5><b>"Select"</b> Component [Will Be Continued] </h5>
             </div>
         </div>
-        <!--<div class="container">
+        <div class="container">
             <div class="row">
-                <div class="col-6">
-                    <select class="mdb-select">
+                <div class="col-12">
+                    <div class="d-flex flex-column">
+                        <select class="mdb-select">
                         <option value="" disabled selected>Choose your option</option>
                         <option value="1">Option 1</option>
                         <option value="2">Option 2</option>
                         <option value="3">Option 3</option>
                     </select>
-                    <label>Example label</label>
+                        <label>Example label</label>
+                    </div>
+
                 </div>
             </div>
             <div class="row">
+                <div class="col-12">
+                    <select class="mdb-select1" id="select1">
+                    <option value="" disabled selected>Choose your option</option>
+                    <option value="" data-icon="https://mdbootstrap.com/img/Photos/Avatars/avatar-1.jpg" class="rounded-circle">example 1</option>
+                    <option value="" data-icon="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" class="rounded-circle">example 2</option>
+                    <option value="" data-icon="https://mdbootstrap.com/img/Photos/Avatars/avatar-3.jpg" class="rounded-circle">example 1</option>
+                </select>
+                    <label for="select1">Example label</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <select class="mdb-select">
+                        <optgroup label="team 1">
+                            <option value="1">Option 1</option>
+                            <option value="2">Option 2</option>
+                        </optgroup>
+                        <optgroup label="team 2">
+                            <option value="3">Option 3</option>
+                            <option value="4">Option 4</option>
+                        </optgroup>
+                    </select>
+                    <label>Example label</label>
+                </div>
+            </div>
+            <div class="row" >
+                <div class="col-12">
+                    <select class="mdb-select" multiple>
+                        <option value="" disabled selected>Choose your option</option>
+                        <option value="1">Option 1</option>
+                        <option value="2">Option 2</option>
+                        <option value="3">Option 3</option>
+                    </select>
+                    <label>Something error</label>
+                </div>
+            </div>
+            <div class="row" hidden>
                 <div class="col-6">
                     <select class="mdb-select" multiple>
                         <option value="" disabled selected>Choose your option</option>
@@ -259,9 +300,9 @@
                 </div>
             </div>
 
-            <div class="row">
+            <div class="row" hidden>
                 <div class="col-6">
-                    <select  class="mdb-select" multiple>
+                    <select class="mdb-select" multiple>
                     <optgroup label="team 1">
                         <option value="1">Option 1</option>
                         <option value="2">Option 2</option>
@@ -275,8 +316,8 @@
                 </div>
             </div>
 
-            <div class="row">
-                <select class="mdb-select" >
+            <div class="row" hidden>
+                <select class="mdb-select">
                         <option value="" disabled selected>Choose your option</option>
                         <option value="" data-icon="img/user/man.svg" class="rounded-circle">example 1</option>
                         <option value="" data-icon="img/user/team.svg" class="rounded-circle">example 2</option>
@@ -284,8 +325,8 @@
                     </select>
                 <label>Images in select</label>
             </div>
-            <div class="row">
-                <select class="mdb-select" >
+            <div class="row" hidden>
+                <select class="mdb-select">
                         <option value="" disabled selected>Choose your option</option>
                         <option value="" data-icon="img/user/man.svg" class="float-left rounded-circle">example 1</option>
                         <option value="" data-icon="img/user/team.svg" class="float-left rounded-circle">example 2</option>
@@ -293,7 +334,7 @@
                     </select>
                 <label>Images in select</label>
             </div>
-            <div class="row">
+            <div class="row" hidden>
                 <label>Browser Select</label>
                 <select class="browser-default">
                     <option value="" disabled selected>Choose your option</option>
@@ -302,7 +343,7 @@
                     <option value="3">Option 3</option>
                 </select>
             </div>
-        </div>-->
+        </div>
     </section>
 
     <!--RANGE-->
@@ -325,19 +366,19 @@
     <section id="char-count">
         <div class="container">
             <div class="row">
-                <h5><b>"Character Counter"</b> [Will Be Continued]</h5>
-                <!--<div class="col-6">
-                    <div class="md-form">
+                <!--<h5><b>"Character Counter"</b> [Will Be Continued]</h5>-->
+                <div class="col-6">
+                    <!--<div class="md-form">-->
                         <input id="input_text" type="text" length="10">
                         <label for="input_text">Input text</label>
-                    </div>
+                    <!--</div>-->
                 </div>
                 <div class="col-6">
-                    <div class="md-form">
-                        <textarea id="textarea1" class="md-textarea" length="120"></textarea>
+                    <!--<div class="md-form">-->
+                        <textarea id="textarea1" length="120"></textarea>
                         <label for="textarea1">Type your text</label>
-                    </div>
-                </div>-->
+                    <!--</div>-->
+                </div>
             </div>
         </div>
     </section>
@@ -345,25 +386,25 @@
 
     <script type="text/javascript" src="js/bin/jquery-3.1.1.min.js"></script>
     <!--<script type="text/javascript" src="js/bin/jquery-2.2.3.min.js"></script>-->
+    <!--<script type="text/javascript" src="js/jquery.hammer.js"></script>-->
     <script type="text/javascript" src="js/bin/tether.min.js"></script>
+    <script type="text/javascript" src="js/bin/bootstrap.min.js"></script>
     <!--<script type="text/javascript" src="js/hammer.min.js"></script>-->
 
-
-    <script type="text/javascript" src="js/bin/bootstrap.min.js"></script>
-    <!--<script type="text/javascript" src="js/jquery.hammer.js"></script>-->
-
-    <script type="text/javascript" src="mdb.js"></script>
-    <!--<script>
+    <script type="text/javascript" src="mdb.min.js"></script>
+    <!--<script type="text/javascript" src="js/character_counter.js"></script>-->
+    <script>
         // Material Select Initialization
         $(document).ready(function () {
             $('.mdb-select').material_select();
         });
-    </script>-->
-    <!--<script>
         $(document).ready(function () {
-            $('input#input_text, textarea#textarea1').characterCounter();
+            $('.mdb-select1').material_select();
         });
-    </script>-->
+    </script>
+    <script>
+      
+    </script>
 </body>
 
 </html>
