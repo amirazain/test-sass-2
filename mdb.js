@@ -1,83 +1,16 @@
-/*!
- * Material Design for Bootstrap 4
- * Version: MDB FREE: 4.3.1
- *
- *
- * Copyright: Material Design for Bootstrap
- * http://mdbootstrap.com/
- *
- * Read the license: http://mdbootstrap.com/license/
- *
- *
- * Documentation: http://mdbootstrap.com/
- *
- * Getting started: http://mdbootstrap.com/getting-started/
- *
- * Tutorials: http://mdbootstrap.com/bootstrap-tutorial/
- *
- * Templates: http://mdbootstrap.com/templates/
- *
- * Support: http://mdbootstrap.com/forums/forum/support/
- *
- * Contact: office@mdbootstrap.com
- *
- * Atribution: Animate CSS, Twitter Bootstrap, Materialize CSS, Normalize CSS, Waves JS, WOW JS, Toastr, Chart.js , Hammer.js
- *
- */
-
 
 /*
-
-jquery-easing.js
-global.js
-velocity.js
-
-chart.js
-wow.js
-scrolling-nav.js
-waves.js
-forms-basic.js
-
-
-
+1. jquery-easing.js
+2. global.js
+3. velocity.js
+4. chart.js
+5. wow.js
+6. scrolling-nav.js
+7. waves.js
+8. forms-basic.js
 */
-/*
- * jQuery Easing v1.3 - http://gsgd.co.uk/sandbox/jquery/easing/
- *
- * Uses the built in easing capabilities added In jQuery 1.1
- * to offer multiple easing options
- *
- * TERMS OF USE - jQuery Easing
- *
- * Open source under the BSD License.
- *
- * Copyright © 2008 George McGinley Smith
- * All rights reserved.
- *
- * Redistribution and use in source and binary forms, with or without modification,
- * are permitted provided that the following conditions are met:
- *
- * Redistributions of source code must retain the above copyright notice, this list of
- * conditions and the following disclaimer.
- * Redistributions in binary form must reproduce the above copyright notice, this list
- * of conditions and the following disclaimer in the documentation and/or other materials
- * provided with the distribution.
- *
- * Neither the name of the author nor the names of contributors may be used to endorse
- * or promote products derived from this software without specific prior written permission.
- *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY
- * EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
- * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
- *  COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
- *  EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE
- *  GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED
- * AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
- * OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- */
 
+// 1. Jquery Easing 1.3
 // t: current time, b: begInnIng value, c: change In value, d: duration
 jQuery.easing['jswing'] = jQuery.easing['swing'];
 
@@ -231,38 +164,8 @@ jQuery.extend(jQuery.easing, {
 	}
 });
 
-/*
- *
- * TERMS OF USE - EASING EQUATIONS
- *
- * Open source under the BSD License.
- *
- * Copyright © 2001 Robert Penner
- * All rights reserved.
- *
- * Redistribution and use in source and binary forms, with or without modification,
- * are permitted provided that the following conditions are met:
- *
- * Redistributions of source code must retain the above copyright notice, this list of
- * conditions and the following disclaimer.
- * Redistributions in binary form must reproduce the above copyright notice, this list
- * of conditions and the following disclaimer in the documentation and/or other materials
- * provided with the distribution.
- *
- * Neither the name of the author nor the names of contributors may be used to endorse
- * or promote products derived from this software without specific prior written permission.
- *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY
- * EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
- * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
- *  COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
- *  EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE
- *  GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED
- * AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
- * OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- */ // Required for Meteor package, the use of window prevents export by Meteor
+
+// 2.  Global 
 (function (window) {
 	if (window.Package) {
 		Materialize = {};
@@ -270,7 +173,6 @@ jQuery.extend(jQuery.easing, {
 		window.Materialize = {};
 	}
 })(window);
-
 
 // Unique ID
 Materialize.guid = (function () {
@@ -298,7 +200,7 @@ Materialize.elementOrParentIsFixed = function (element) {
 	return isFixed;
 };
 
-
+// 3. Velocity
 // Velocity has conflicts when loaded with jQuery, this will check for it
 var Vel;
 if ($) {
@@ -1493,6 +1395,7 @@ jQuery.Velocity ? console.log("Velocity is already loaded. You may be needlessly
  * Released under the MIT license
  * https://github.com/nnnick/Chart.js/blob/master/LICENSE.md
  */
+// 4. Chart Js
 (function () {
 
 	"use strict";
@@ -3733,6 +3636,7 @@ jQuery.Velocity ? console.log("Velocity is already loaded. You may be needlessly
 
 }).call(this);
 
+// == Bar Type ==
 (function () {
 	"use strict";
 
@@ -3776,7 +3680,6 @@ jQuery.Velocity ? console.log("Velocity is already loaded. You may be needlessly
 		legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].fillColor%>\"><%if(datasets[i].label){%><%=datasets[i].label%><%}%></span></li><%}%></ul>"
 
 	};
-
 
 	Chart.Type.extend({
 		name: "Bar",
@@ -4033,10 +3936,9 @@ jQuery.Velocity ? console.log("Velocity is already loaded. You may be needlessly
 			}, this);
 		}
 	});
-
-
 }).call(this);
 
+// == Doughnut Type ==
 (function () {
 	"use strict";
 
@@ -4234,6 +4136,7 @@ jQuery.Velocity ? console.log("Velocity is already loaded. You may be needlessly
 
 }).call(this);
 
+// == Line Type ==
 (function () {
 	"use strict";
 
@@ -4614,6 +4517,7 @@ jQuery.Velocity ? console.log("Velocity is already loaded. You may be needlessly
 
 }).call(this);
 
+// == PolarArea  Type ==
 (function () {
 	"use strict";
 
@@ -4665,8 +4569,6 @@ jQuery.Velocity ? console.log("Velocity is already loaded. You may be needlessly
 		//String - A legend template
 		legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<segments.length; i++){%><li><span style=\"background-color:<%=segments[i].fillColor%>\"><%if(segments[i].label){%><%=segments[i].label%><%}%></span></li><%}%></ul>"
 	};
-
-
 	Chart.Type.extend({
 		//Passing in a name registers this chart in the Chart namespace
 		name: "PolarArea",
@@ -4863,6 +4765,7 @@ jQuery.Velocity ? console.log("Velocity is already loaded. You may be needlessly
 
 }).call(this);
 
+// == Radar Type ==
 (function () {
 	"use strict";
 
@@ -5201,13 +5104,10 @@ jQuery.Velocity ? console.log("Velocity is already loaded. You may be needlessly
 
 	});
 
-
-
-
-
 }).call(this);
-//WOW SCRIPT - REVEAL ANIMATIONS WHEN SCROLLING
 
+
+//5. WOW SCRIPT - REVEAL ANIMATIONS WHEN SCROLLING
 (function () {
 	var MutationObserver, Util, WeakMap, getComputedStyle, getComputedStyleRX,
 		bind = function (fn, me) {
@@ -5730,7 +5630,8 @@ jQuery.Velocity ? console.log("Velocity is already loaded. You may be needlessly
 	})();
 
 }).call(this);
-/* SCROLLING NAVBAR */
+
+/* 6. SCROLLING NAVBAR */
 //jQuery to collapse the navbar on scroll
 $(window).scroll(function () {
 	if ($(".navbar").offset()) {
@@ -5742,7 +5643,6 @@ $(window).scroll(function () {
 	}
 
 });
-
 //jQuery for page scrolling feature - requires jQuery Easing plugin
 $(function () {
 	$('a.page-scroll').bind('click', function (event) {
@@ -5762,7 +5662,7 @@ $(function () {
  * Released under the MIT license
  * https://github.com/fians/Waves/blob/master/LICENSE
  */
-
+// 7. Waves
 ;
 (function (window, factory) {
 	'use strict';
@@ -6350,7 +6250,7 @@ Waves.attach('.pager li a', ['waves-light']);
 Waves.attach('.pagination .page-item .page-link', ['waves-effect']);
 Waves.init(); /* FORMS */
 
-// Forms
+// 8. Forms
 (function ($) {
 	$(document).ready(function () {
 
@@ -6529,10 +6429,7 @@ Waves.init(); /* FORMS */
 			path_input.trigger('change');
 		});
 
-		/****************
-		 *  Range Input  *
-		 ****************/
-
+		// Range Input
 		var range_type = 'input[type=range]';
 		var range_mousedown = false;
 		var left;
@@ -6645,9 +6542,7 @@ Waves.init(); /* FORMS */
 		});
 
 
-		/*******************
-		 *  Select Plugin  *
-		 ******************/
+		//  Select plugin
 		$.fn.material_select = function (callback) {
 			$(this).each(function () {
 				var $select = $(this);
@@ -6975,13 +6870,10 @@ Waves.init(); /* FORMS */
 			}
 		};
 
-
-
-	}); // End of $(document).ready
-
+	}); 
 }(jQuery));
 
-// Character Counter
+// 9. Character Counter
 (function ($) {
 
 	$.fn.characterCounter = function () {
@@ -7055,7 +6947,7 @@ Waves.init(); /* FORMS */
 }(jQuery));
 
 
-// Button
+// 10. Button
 (function ($) {
 	$(document).ready(function () {
 

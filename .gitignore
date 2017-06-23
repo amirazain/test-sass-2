@@ -4,7 +4,6 @@ ehthumbs.db
 
 # Folder config file
 Desktop.ini
-!node_modules/*
 
 # Recycle Bin used on file shares
 $RECYCLE.BIN/
@@ -48,3 +47,5 @@ Temporary Items
 .apdisk
 
 
+.gitignore
+node_modules
