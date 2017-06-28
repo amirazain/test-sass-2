@@ -8,25 +8,132 @@
             color: #616161;
             @include transition (0.4s);
         }
+        &.activator {
+            cursor: pointer;
+        }
     }
     img {
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
         @extend .img-fluid;
     }
+    .btn-action {
+        // margin: -23px 20px;
+        margin-left: auto;
+        // background-color: #4B515D;
+        // height: 47px;
+        // width: 47px;
+        line-height: inherit;
+        @extend .btn-floating;
+        // @extend .halfway-fab;
+        i{
+            color:#fff;
+            font-size: 18px!important;
+            // margin-top: 5px;
+        }
+
+    }
     .card-block {
-        position:relative;
+        position: relative;
     }
     .card-footer {
         padding-bottom: 0;
-        font-size:1.2rem;
+        font-size: 1.2rem;
         &:after {
-            display:block;
+            display: block;
             content: "";
-            clear:both;
+            clear: both;
         }
         .card-link {
             color: inherit;
+        }
+    } // Card Sizes
+    &.small,
+    &.medium,
+    &.large {
+        position: relative;
+        img {
+            max-height: 60%;
+            overflow: hidden;
+        }
+        img+.card-block {
+            max-height: 40%;
+        }
+        .card-block {
+            max-height: 100%;
+            overflow: hidden;
+        }
+        .card-action {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+    }
+    &.horizontal {
+        &.small,
+        &.medium,
+        &.large {
+            img {
+                height: 100%;
+                max-height: none;
+                overflow: visible;
+            }
+        }
+        display: flex;
+        img {
+            border-radius: 2px 0 0 2px;
+            max-width: 100%;
+            width: auto;
+        }
+        .card-stacked {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            position: relative;
+            .card-block {
+                flex-grow: 1;
+            }
+        }
+    } // Sticky Action Section
+    &.sticky-action {
+        .card-action {
+            z-index: 2;
+        }
+        .card-reveal {
+            z-index: 1;
+            padding-bottom: 64px;
+        }
+    }
+    .card-action {
+        position: relative;
+        background-color: inherit;
+        border-top: 1px solid rgba(160, 160, 160, .2);
+        padding: 16px $card-padding;
+        a:not(.btn):not(.btn-large):not(.btn-floating) {
+            color: $card-link-color;
+            margin-right: $card-padding;
+            transition: color .3s ease;
+            text-transform: uppercase;
+            &:hover {
+                color: $card-link-color-light;
+            }
+        }
+    }
+    .card-reveal {
+        padding: $card-padding;
+        position: absolute;
+        background-color: $card-bg-color;
+        width: 100%;
+        overflow-y: auto;
+        left: 0;
+        top: 100%;
+        height: 100%;
+        z-index: 3;
+        display: none;
+        .card-title {
+            cursor: pointer;
+            display: block;
         }
     }
 }
@@ -56,22 +163,21 @@
 
 // .list-group fix
 .list-group-item {
-    width:100%;
+    width: 100%;
 }
 
 // edge header
 .edge-header {
-    display:block;
-    height:278px;
-    background-color:#ccc;
+    display: block;
+    height: 278px;
+    background-color: #ccc;
 }
 
 .free-bird {
-    margin-top:-100px; 
+    margin-top: -100px;
 }
 
 // Form sets
-
 .card .form-header {
     color: #fff;
     text-align: center;
@@ -85,6 +191,7 @@
         padding: 0.7rem;
     }
 }
+
 .call .fa {
     margin-right: 5px;
 }

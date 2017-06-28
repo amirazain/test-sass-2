@@ -9031,9 +9031,9 @@ button, html [type="button"], [type="reset"], [type="submit"] {
 .card .btn-action {
   margin: -23px 20px;
   margin-left: auto;
-  background-color: #4B515D;
-  height: 47px;
-  width: 47px;
+  /*background-color: #4B515D;*/
+  /*height: 47px;*/
+  /*width: 47px;*/
   line-height: 0; }
   .card .btn-action .fa,
   .card .btn-action .material-icons {

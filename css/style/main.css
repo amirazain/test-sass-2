@@ -1987,11 +1987,11 @@ v.0 Combine between MDB and Materialize CSS
 .navbar,
 .dropdown-menu,
 .badge,
-.chip, .pagination .active .page-link, .btn, .btn-flat, .pager li a, .btn-floating, .dropdown-content {
+.chip, .pagination .active .page-link, .btn, .btn-flat, .pager li a, .btn-floating, .card .btn-action, .dropdown-content {
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12); }
 
 .z-depth-1-half, .media .media-left img, .tooltip .tooltip-inner, .section img,
-.section .view, .btn:hover, .btn-flat:hover, .btn.active, .active.btn-flat, .btn:active, .btn-flat:active, .btn:focus, .btn-flat:focus, .btn-secondary.active, .btn-secondary.dropdown-toggle, .btn-primary.active, .btn-default.active, .btn-success.active, .btn-info.active, .btn-warning.active, .btn-danger.active, .pager li a:hover, .btn-elegant.active, .btn-unique.active, .btn-pink.active, .btn-purple.active, .btn-deep-purple.active, .btn-indigo.active, .btn-cyan.active, .btn-light-green.active, .btn-dark-green.active, .btn-lime.active, .btn-yellow.active, .btn-amber.active, .btn-orange.active, .btn-deep-orange.active, .btn-brown.active, .btn-blue-grey.active, .btn-teal.active, .btn-floating:hover, .card .form-header, ul.instagram-photos li img {
+.section .view, .btn:hover, .btn-flat:hover, .btn.active, .active.btn-flat, .btn:active, .btn-flat:active, .btn:focus, .btn-flat:focus, .btn-secondary.active, .btn-secondary.dropdown-toggle, .btn-primary.active, .btn-default.active, .btn-success.active, .btn-info.active, .btn-warning.active, .btn-danger.active, .pager li a:hover, .btn-elegant.active, .btn-unique.active, .btn-pink.active, .btn-purple.active, .btn-deep-purple.active, .btn-indigo.active, .btn-cyan.active, .btn-light-green.active, .btn-dark-green.active, .btn-lime.active, .btn-yellow.active, .btn-amber.active, .btn-orange.active, .btn-deep-orange.active, .btn-brown.active, .btn-blue-grey.active, .btn-teal.active, .btn-floating:hover, .card .btn-action:hover, .card .form-header, ul.instagram-photos li img {
   box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15); }
 
 .z-depth-2, .section .jumbotron {
@@ -5866,8 +5866,11 @@ button:focus {
 .btn-flat:disabled,
 .btn-flat[disabled],
 .btn-floating.disabled,
+.card .disabled.btn-action,
 .btn-floating:disabled,
+.card .btn-action:disabled,
 .btn-floating[disabled],
+.card [disabled].btn-action,
 .btn-large.disabled,
 .btn-large:disabled,
 .btn-large[disabled],
@@ -5887,8 +5890,11 @@ button:focus {
 .btn-flat:disabled:hover,
 .btn-flat[disabled]:hover,
 .btn-floating.disabled:hover,
+.card .disabled.btn-action:hover,
 .btn-floating:disabled:hover,
+.card .btn-action:disabled:hover,
 .btn-floating[disabled]:hover,
+.card [disabled].btn-action:hover,
 .btn-large.disabled:hover,
 .btn-large:disabled:hover,
 .btn-large[disabled]:hover,
@@ -5904,21 +5910,24 @@ button:focus {
 .btn, .btn-flat,
 .btn-flat,
 .btn-floating,
+.card .btn-action,
 .btn-large {
   outline: 0; }
 
 .btn .fa, .btn-flat .fa,
 .btn-flat .fa,
-.btn-floating .fa,
+.btn-floating .fa, .card .btn-action .fa,
 .btn-large .fa {
   font-size: 1.3rem;
   line-height: inherit; }
 
 .btn:focus, .btn-flat:focus,
-.btn-floating:focus {
+.btn-floating:focus,
+.card .btn-action:focus {
   background-color: #e6e6e6; }
 
-.btn-floating {
+.btn-floating, .card .btn-action {
+  margin: -23px 20px;
   display: inline-block;
   color: #fff !important;
   position: relative;
@@ -5926,7 +5935,7 @@ button:focus {
   z-index: 1;
   width: inherit;
   height: 37px;
-  line-height: 36px !important;
+  line-height: 36px;
   padding: 0;
   background-color: #aa66cc;
   border-radius: 50% !important;
@@ -5934,47 +5943,47 @@ button:focus {
   cursor: pointer;
   vertical-align: middle; }
 
-.btn-floating:hover {
+.btn-floating:hover, .card .btn-action:hover {
   background-color: #aa66cc; }
 
-.btn-floating:before {
+.btn-floating:before, .card .btn-action:before {
   border-radius: 0; }
 
-.btn-floating.btn-small {
+.btn-floating.btn-small, .card .btn-small.btn-action {
   width: 36px;
   height: 36px; }
 
-.btn-floating.btn-small i {
-  font-size: 1.28rem !important;
+.btn-floating.btn-small i, .card .btn-small.btn-action i {
+  font-size: 1.12rem;
   line-height: 36px; }
 
-.btn-floating.btn-medium {
+.btn-floating.btn-medium, .card .btn-medium.btn-action {
   width: 46.8px;
   height: 46.8px; }
 
-.btn-floating.btn-medium i {
-  font-size: 1.6rem !important;
+.btn-floating.btn-medium i, .card .btn-medium.btn-action i {
+  font-size: 1.6rem;
   line-height: 46.8px; }
 
-.btn-floating.btn-large {
+.btn-floating.btn-large, .card .btn-large.btn-action {
   width: 57.6px;
   height: 57.6px; }
 
-.btn-floating.btn-large i {
-  font-size: 2.08rem !important;
+.btn-floating.btn-large i, .card .btn-large.btn-action i {
+  font-size: 1.92rem;
   line-height: 57.6px; }
 
-.btn-floating.halfway-fab {
+.btn-floating.halfway-fab, .card .halfway-fab.btn-action {
   position: absolute;
   right: 24px;
   bottom: 0;
   transform: translateY(50%); }
 
-.btn-floating.halfway-fab.left {
+.btn-floating.halfway-fab.left, .card .halfway-fab.left.btn-action {
   right: auto;
   left: 24px; }
 
-.btn-floating i {
+.btn-floating i, .card .btn-action i {
   width: inherit;
   display: inline-block;
   text-align: center;
@@ -5982,7 +5991,7 @@ button:focus {
   font-size: 1.6rem;
   line-height: 36px; }
 
-button.btn-floating {
+button.btn-floating, .card button.btn-action {
   border: none; }
 
 .fixed-action-btn {
@@ -6059,7 +6068,7 @@ button.btn-floating {
 .fixed-action-btn ul li {
   margin-bottom: 15px; }
 
-.fixed-action-btn ul a.btn-floating {
+.fixed-action-btn ul a.btn-floating, .fixed-action-btn ul .card a.btn-action, .card .fixed-action-btn ul a.btn-action {
   line-height: inherit;
   opacity: 0; }
 
@@ -6115,9 +6124,20 @@ button.btn-floating {
   -ms-transition: 0.4s;
   transition: 0.4s; }
 
+.card .card-title a.activator {
+  cursor: pointer; }
+
 .card img {
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0; }
+
+.card .btn-action {
+  margin-left: auto;
+  line-height: inherit; }
+
+.card .btn-action i {
+  color: #fff;
+  font-size: 18px !important; }
 
 .card .card-block {
   position: relative; }
@@ -6133,6 +6153,86 @@ button.btn-floating {
 
 .card .card-footer .card-link {
   color: inherit; }
+
+.card.small, .card.medium, .card.large {
+  position: relative; }
+
+.card.small img, .card.medium img, .card.large img {
+  max-height: 60%;
+  overflow: hidden; }
+
+.card.small img + .card-block, .card.medium img + .card-block, .card.large img + .card-block {
+  max-height: 40%; }
+
+.card.small .card-block, .card.medium .card-block, .card.large .card-block {
+  max-height: 100%;
+  overflow: hidden; }
+
+.card.small .card-action, .card.medium .card-action, .card.large .card-action {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0; }
+
+.card.horizontal {
+  display: flex; }
+
+.card.horizontal.small img, .card.horizontal.medium img, .card.horizontal.large img {
+  height: 100%;
+  max-height: none;
+  overflow: visible; }
+
+.card.horizontal img {
+  border-radius: 2px 0 0 2px;
+  max-width: 100%;
+  width: auto; }
+
+.card.horizontal .card-stacked {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  position: relative; }
+
+.card.horizontal .card-stacked .card-block {
+  flex-grow: 1; }
+
+.card.sticky-action .card-action {
+  z-index: 2; }
+
+.card.sticky-action .card-reveal {
+  z-index: 1;
+  padding-bottom: 64px; }
+
+.card .card-action {
+  position: relative;
+  background-color: inherit;
+  border-top: 1px solid rgba(160, 160, 160, 0.2);
+  padding: 16px 20px; }
+
+.card .card-action a:not(.btn):not(.btn-flat):not(.btn-large):not(.btn-floating):not(.card .btn-action) {
+  color: #ffab40;
+  margin-right: 20px;
+  transition: color .3s ease;
+  text-transform: uppercase; }
+
+.card .card-action a:not(.btn):not(.btn-flat):not(.btn-large):not(.btn-floating):not(.card .btn-action):hover {
+  color: #ffd8a6; }
+
+.card .card-reveal {
+  padding: 20px;
+  position: absolute;
+  background-color: #fff;
+  width: 100%;
+  overflow-y: auto;
+  left: 0;
+  top: 100%;
+  height: 100%;
+  z-index: 3;
+  display: none; }
+
+.card .card-reveal .card-title {
+  cursor: pointer;
+  display: block; }
 
 .jumbotron {
   background-color: #fff;
