@@ -9,7 +9,7 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
         crossorigin="anonymous">
-    <link rel="stylesheet" href="noUiSlider.css">
+    <link rel="stylesheet" href="nouislider.css">
     <link rel="stylesheet" href="css/style/main.css">
 
 
@@ -351,15 +351,15 @@
                     <h5>Range</h5>
                 </div>
                 <div class="col-6">
-                    <form class="range-field">
-                        <input type="range" min="0" max="100" />
-                    </form>
+
+                    <div id="rangetest5"></div>
+                    
                 </div>
             </div>
             <div class="row">
                 <form action="#">
                     <p class="range-field">
-                        <input type="range" id="test5" min="0" max="100" />
+                        <input type="range" min="0" max="100" />
                     </p>
                 </form>
             </div>
@@ -403,33 +403,19 @@
     <script type="text/javascript" src="js/bin/tether.min.js"></script>
     <script type="text/javascript" src="js/bin/bootstrap.min.js"></script>
     <!--<script type="text/javascript" src="mdb.min.js"></script>-->
-    <script type="text/javascript" src="noUiSlider.js"></script>
-    <script type="text/javascript" src="wNumb.js"></script>
     <script type="text/javascript" src="mdb.js"></script>
+    <!--<script type="text/javascript" src="wNumb.js"></script>-->
+    <script type="text/javascript" src="nouislider.js"></script>
     <script>
         // Material Select Initialization
         $(document).ready(function () {
             $('.mdb-select').material_select();
-        });
-        $(document).ready(function () {
-            $('.mdb-select1').material_select();
         });
     </script>
     <script>
         $('.datepicker').pickadate({
             selectMonths: true, // Creates a dropdown to control month
             selectYears: 100 // Creates a dropdown of 15 years to control year
-        });
-        $('.timepicker').pickatime({
-            default: 'now', // Set default time
-            fromnow: 0, // set default time to * milliseconds from now (using with default = 'now')
-            twelvehour: false, // Use AM/PM or 24-hour format
-            donetext: 'OK', // text for done-button
-            cleartext: 'Clear', // text for clear-button
-            canceltext: 'Cancel', // Text for cancel-button
-            autoclose: false, // automatic close timepicker
-            ampmclickable: true, // make AM PM clickable
-            aftershow: function () {} //Function for after opening timepicker  
         });
     </script>
     <script>
@@ -439,9 +425,9 @@
     </script>
 
     <script>
-        var slider = document.getElementById('test5');
+        var slider = document.getElementById('rangetest5');
         noUiSlider.create(slider, {
-            start: [20, 80],
+            start: [0 , 20],
             connect: true,
             step: 1,
             range: {
@@ -449,9 +435,7 @@
                 'max': 100
             },
             format: wNumb({
-                decimals: 0, // default is 2
-                thousand: '.', // thousand delimiter
-                postfix: ' (US $)', // gets appended after the number
+                decimals: 0
             })
         });
     </script>

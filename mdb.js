@@ -8970,7 +8970,7 @@ Waves.init(); /* FORMS */
 			}
 
 			var offsetLeft = calcRangeOffset($(this));
-			thumb.addClass('active').css('float-left', offsetLeft);
+			thumb.addClass('active').css('left', offsetLeft);
 		});
 
 		$(document).on('mousedown touchstart', range_type, function (e) {
@@ -10154,6 +10154,8 @@ Waves.init(); /* FORMS */
 	}; // Plugin end
 }(jQuery));
 
+
+// 
 (function ( factory ) {
 
     // AMD.
