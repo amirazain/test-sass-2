@@ -1,5 +1,6 @@
 <!doctype html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -8,8 +9,8 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
         crossorigin="anonymous">
+    <link rel="stylesheet" href="noUiSlider.css">
     <link rel="stylesheet" href="css/style/main.css">
-    <!--<link rel="stylesheet" href="mdb.css">-->
 
 
 
@@ -273,7 +274,7 @@
                     <label>Example label</label>
                 </div>
             </div>
-            <div class="row" >
+            <div class="row">
                 <div class="col-12">
                     <select class="mdb-select" multiple>
                         <option value="" disabled selected>Choose your option</option>
@@ -355,6 +356,13 @@
                     </form>
                 </div>
             </div>
+            <div class="row">
+                <form action="#">
+                    <p class="range-field">
+                        <input type="range" id="test5" min="0" max="100" />
+                    </p>
+                </form>
+            </div>
         </div>
     </section>
 
@@ -365,30 +373,39 @@
                 <!--<h5><b>"Character Counter"</b> [Will Be Continued]</h5>-->
                 <div class="col-6">
                     <!--<div class="md-form">-->
-                        <input id="input_text" type="text" length="10">
-                        <label for="input_text">Input text</label>
+                    <input id="input_text" type="text" length="10">
+                    <label for="input_text">Input text</label>
                     <!--</div>-->
                 </div>
                 <div class="col-6">
                     <!--<div class="md-form">-->
-                        <textarea id="textarea1" length="120"></textarea>
-                        <label for="textarea1">Type your text</label>
+                    <textarea id="textarea1" length="120"></textarea>
+                    <label for="textarea1">Type your text</label>
                     <!--</div>-->
                 </div>
             </div>
         </div>
     </section>
 
+    <section>
+        <div class="container">
+            <div class="row">
+                <input type="date" class="datepicker">
+            </div>
+            <div class="row mt-5">
+                <input type="date" class="timepicker">
+            </div>
+        </div>
+    </section>
+
 
     <script type="text/javascript" src="js/bin/jquery-3.1.1.min.js"></script>
-    <!--<script type="text/javascript" src="js/bin/jquery-2.2.3.min.js"></script>-->
-    <!--<script type="text/javascript" src="js/jquery.hammer.js"></script>-->
     <script type="text/javascript" src="js/bin/tether.min.js"></script>
     <script type="text/javascript" src="js/bin/bootstrap.min.js"></script>
-    <!--<script type="text/javascript" src="js/hammer.min.js"></script>-->
-
-    <script type="text/javascript" src="mdb.min.js"></script>
-    <!--<script type="text/javascript" src="js/character_counter.js"></script>-->
+    <!--<script type="text/javascript" src="mdb.min.js"></script>-->
+    <script type="text/javascript" src="noUiSlider.js"></script>
+    <script type="text/javascript" src="wNumb.js"></script>
+    <script type="text/javascript" src="mdb.js"></script>
     <script>
         // Material Select Initialization
         $(document).ready(function () {
@@ -399,7 +416,44 @@
         });
     </script>
     <script>
-      
+        $('.datepicker').pickadate({
+            selectMonths: true, // Creates a dropdown to control month
+            selectYears: 100 // Creates a dropdown of 15 years to control year
+        });
+        $('.timepicker').pickatime({
+            default: 'now', // Set default time
+            fromnow: 0, // set default time to * milliseconds from now (using with default = 'now')
+            twelvehour: false, // Use AM/PM or 24-hour format
+            donetext: 'OK', // text for done-button
+            cleartext: 'Clear', // text for clear-button
+            canceltext: 'Cancel', // Text for cancel-button
+            autoclose: false, // automatic close timepicker
+            ampmclickable: true, // make AM PM clickable
+            aftershow: function () {} //Function for after opening timepicker  
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $('input#input_text, textarea#textarea1').characterCounter();
+        });
+    </script>
+
+    <script>
+        var slider = document.getElementById('test5');
+        noUiSlider.create(slider, {
+            start: [20, 80],
+            connect: true,
+            step: 1,
+            range: {
+                'min': 0,
+                'max': 100
+            },
+            format: wNumb({
+                decimals: 0, // default is 2
+                thousand: '.', // thousand delimiter
+                postfix: ' (US $)', // gets appended after the number
+            })
+        });
     </script>
 </body>
 
