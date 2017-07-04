@@ -5,7 +5,9 @@
  * The picker box.
  */
 .picker__box {
-  padding: 0 1em;
+  padding: 0;
+  border-radius: 2px;
+  overflow: hidden;
 }
 /**
  * The header containing the month and year stuff.
@@ -63,33 +65,32 @@
   width: 1em;
   height: 1em;
   box-sizing: content-box;
-  // top: -0.25em;
-  top: 0;
+  top: -0.25em;
 }
-//@media (min-width: 24.5em) {
-//  .picker__nav--prev,
-//  .picker__nav--next {
-//    top: -0.33em;
-//  }
-//}
+@media (min-width: 24.5em) {
+ .picker__nav--prev,
+ .picker__nav--next {
+   top: -0.33em;
+ }
+}
 .picker__nav--prev {
   left: -1em;
   padding-right: 1.25em;
 }
-//@media (min-width: 24.5em) {
-//  .picker__nav--prev {
-//    padding-right: 1.5em;
-//  }
-//}
+@media (min-width: 24.5em) {
+ .picker__nav--prev {
+   padding-right: 1.5em;
+ }
+}
 .picker__nav--next {
   right: -1em;
   padding-left: 1.25em;
 }
-//@media (min-width: 24.5em) {
-//  .picker__nav--next {
-//    padding-left: 1.5em;
-//  }
-//}
+@media (min-width: 24.5em) {
+ .picker__nav--next {
+   padding-left: 1.5em;
+ }
+}
 
 .picker__nav--disabled,
 .picker__nav--disabled:hover,
@@ -111,7 +112,7 @@
   font-size: 1rem;
   width: 100%;
   margin-top: .75em;
-  margin-bottom: .5em;
+  margin-bottom: .75em;
 }
 
 
@@ -119,10 +120,6 @@
 .picker__table th, .picker__table td {
   text-align: center;
 }
-
-
-
-
 
 
 .picker__table td {
@@ -159,7 +156,7 @@
 
 }
 
-//.picker__day--today:before {
+// .picker__day--today:before {
 //  content: " ";
 //  position: absolute;
 //  top: 2px;
@@ -168,7 +165,7 @@
 //  height: 0;
 //  border-top: 0.5em solid #0059bc;
 //  border-left: .5em solid transparent;
-//}
+// }
 .picker__day--disabled:before {
   border-top-color: #aaaaaa;
 }
@@ -195,7 +192,7 @@
 
 
 .picker__day--highlighted {
-//  border-color: #0089ec;
+ border-color: #0089ec;
 }
 .picker__day--highlighted:hover,
 .picker--focused .picker__day--highlighted {
@@ -207,8 +204,6 @@
 .picker__day--selected,
 .picker__day--selected:hover,
 .picker--focused .picker__day--selected {
-
-
 //  Circle background
    border-radius: 50%;
   transform: scale(.75);
@@ -231,35 +226,34 @@
  * The footer containing the "today", "clear", and "close" buttons.
  */
 .picker__footer {
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  text-align: right;
 }
 .picker__button--today,
 .picker__button--clear,
 .picker__button--close {
-  border: 1px solid #ffffff;
-  background: #ffffff;
-  font-size: .8em;
+  border: 1px solid #ffffff !important;
+  background: #ffffff !important;
+  font-size: .7em;
   padding: .66em 0;
   font-weight: bold;
   width: 33%;
   display: inline-block;
   vertical-align: bottom;
+  color: #000000 !important;
 }
 .picker__button--today:hover,
 .picker__button--clear:hover,
 .picker__button--close:hover {
   cursor: pointer;
-  color: #000000;
-  background: #b1dcfb;
-  border-bottom-color: #b1dcfb;
+  color: #000000 !important;
+  background: #b1dcfb !important;
+  border-bottom-color: #b1dcfb !important;
 }
 .picker__button--today:focus,
 .picker__button--clear:focus,
 .picker__button--close:focus {
-  background: #b1dcfb;
+  color: #000000 !important;
+  background: #b1dcfb !important;
   border-color: $datepicker-focus;
   outline: none;
 }
@@ -290,7 +284,7 @@
   content: "\D7";
   top: -0.1em;
   vertical-align: top;
-  font-size: 1.1em;
+  // font-size: 1.1em;
   margin-right: .35em;
   color: #777777;
 }
@@ -308,17 +302,29 @@
 /* ==========================================================================
    CUSTOM MATERIALIZE STYLES
    ========================================================================== */
-.picker__box {
-  border-radius: 2px;
-  overflow: hidden;
-}
+// /*.picker__box {
+//   border-radius: 2px;
+//   overflow: hidden;
+// }*/
 
 .picker__date-display {
-  text-align: center;
+  text-align: left;
   background-color: $datepicker-date-bg;
   color: #fff;
-  padding-bottom: 15px;
+  padding: 1.5rem;
   font-weight: 300;
+}
+
+@media only screen and (min-width: 601px) {
+	.picker__date-display {
+		flex:1;
+	}
+	.picker__weekday-display {
+		display:block;
+	}
+	.picker__container__wrapper {
+		flex:2
+	}
 }
 
 .picker__nav--prev:hover,
@@ -329,25 +335,26 @@
 }
 
 .picker__weekday-display {
-  background-color: $datepicker-weekday-bg;
-  padding: 10px;
-  font-weight: 200;
-  letter-spacing: .5;
-  font-size: 1rem;
-  margin-bottom: 15px;
+  font-weight: 500;
+  font-size: $datepicker-display-font-size;
+  margin-right: 5px;
+  margin-top: 4px;
+  // width: 160px;
 }
 
 .picker__month-display {
-  text-transform: uppercase;
-  font-size: 2rem;
+  //text-transform: uppercase;
+  font-size: $datepicker-display-font-size;
+  font-weight: 500;
 }
 .picker__day-display {
-
-  font-size: 4.5rem;
-  font-weight: 400;
+  font-size: $datepicker-display-font-size;
+  font-weight: 500;
+  margin-right: 5px;
 }
 .picker__year-display {
-  font-size: 1.8rem;
+  font-size: 1.5rem;
+  font-weight: 500;
   color: $datepicker-year;
 }
 
@@ -369,12 +376,18 @@
 }
 
 .picker__day--infocus {
-  color: #595959;
-  letter-spacing: -.3;
-  padding: .75rem 0;
+  color: $datepicker-weekday-color;
+  letter-spacing: -.3px;
+  padding: 0.75rem 0;
   font-weight: 400;
   border: 1px solid transparent;
 }
+@media only screen and (min-width: 601px) {
+	.picker__day--infocus {
+		padding: 1rem 0;
+	}
+}
+
 
 //Today style
 .picker__day.picker__day--today {
@@ -401,7 +414,7 @@
   &.picker__day--outfocus {
     background-color: $datepicker-selected-outfocus;
   }
-  color: #ffffff;
+  color: #fff;
 }
 
 .picker__footer {
@@ -410,10 +423,14 @@
 }
 
 // Materialize modified
-.picker__close, .picker__today {
-  // font-size: 1.1rem;
-  padding: 0 1rem;
+.picker__close, .picker__today, .picker__clear {
+  font-size: .8rem;
+  padding: .5rem 1rem;
   color: $datepicker-selected;
+}
+.picker__clear {
+	color:#f44336;
+	float:left;
 }
 
 //month nav buttons
@@ -433,5 +450,6 @@
   border-left: 0.75em solid #676767;
 }
 button.picker__today:focus, button.picker__clear:focus, button.picker__close:focus {
+  // color: #000;
   background-color: $datepicker-selected-outfocus;
 }

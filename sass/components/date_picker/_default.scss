@@ -1,3 +1,7 @@
+Skip to content
+This repository
+Search
+
 /* ==========================================================================
    $BASE-PICKER
    ========================================================================== */
@@ -141,15 +145,15 @@
     box-shadow: 0 12px 36px 16px rgba(0, 0, 0, 0.24);
   }
 }
-@media (min-height: 40.125em) {
- .picker__box {
-  //  font-size: 1.1rem;
-   border-bottom-width: 1px;
-   -webkit-border-radius: 5px;
-   -moz-border-radius: 5px;
-   border-radius: 5px;
- }
-}
+//@media (min-height: 40.125em) {
+//  .picker__box {
+//    font-size: 1.1rem;
+//    border-bottom-width: 1px;
+//    -webkit-border-radius: 5px;
+//    -moz-border-radius: 5px;
+//    border-radius: 5px;
+//  }
+//}
 /**
  * When the picker opens...
  */
@@ -198,4 +202,14 @@
     top: 10%;
     bottom: auto;
   }
+}
+
+@media only screen and (min-width: 601px) {
+	.picker__box {
+		display:flex;
+	}
+	.picker__frame {
+		width: 80%;
+		max-width:600px;
+	}
 }

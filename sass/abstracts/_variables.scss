@@ -103,12 +103,17 @@ $tabs-text-color: $primary-color !default;
 $tabs-bg-color: #fff !default;
 
 // Date Picker
+$datepicker-display-font-size: 2rem;
+$datepicker-weekday-color: rgba(0, 0, 0, .87) !default;
 $datepicker-weekday-bg: darken($primary-color, 7%) !default;
 $datepicker-date-bg: $primary-color !default;
-$datepicker-year: rgba(255, 255, 255, .4) !default;
+$datepicker-year: rgba(255, 255, 255, .7) !default;
 $datepicker-focus: rgba(0,0,0, .05) !default;
 $datepicker-selected: $primary-color !default;
 $datepicker-selected-outfocus: desaturate(lighten($primary-color, 35%), 15%) !default;
+
+$timepicker-clock-color: rgba(0, 0, 0, .87) !default;
+$timepicker-clock-plate-bg: #eee;
 
 // Chip
 $chip-bg-color: #e4e4e4 !default;

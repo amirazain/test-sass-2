@@ -451,6 +451,7 @@ typeof b&&isFinite(b)?b:!1}function x(b){var f,c,d,e={};for(f=0;f<h.length;f+=1)
 	 - The provided value for the option;
 	 - A reference to the options object;
 	 - The name for the option;
+
 	 The testing function returns false when an error is detected,
 	 or true when everything is OK. It can also modify the option
 	 object, to make sure all values can be correctly looped elsewhere. */
