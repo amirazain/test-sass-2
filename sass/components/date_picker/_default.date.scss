@@ -61,11 +61,11 @@
 .picker__nav--prev,
 .picker__nav--next {
   position: absolute;
-  padding: .5em 1.25em;
+  padding: .6em 1.5em;
   width: 1em;
   height: 1em;
   box-sizing: content-box;
-  top: -0.25em;
+  top: -0.15em;
 }
 @media (min-width: 24.5em) {
  .picker__nav--prev,
@@ -115,12 +115,9 @@
   margin-bottom: .75em;
 }
 
-
-
 .picker__table th, .picker__table td {
   text-align: center;
 }
-
 
 .picker__table td {
   margin: 0;
@@ -311,7 +308,7 @@
   text-align: left;
   background-color: $datepicker-date-bg;
   color: #fff;
-  padding: 1.5rem;
+  padding: 1.2rem;
   font-weight: 300;
 }
 
