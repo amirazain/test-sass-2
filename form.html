@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="nouislider.css">
     <!--<link rel="stylesheet" href="croppie.css">-->
     <!--<link rel="stylesheet" href="cropper.css">-->
+    <link rel="stylesheet" href="jquery.rateyo.css">
     <link rel="stylesheet" href="css/style/main.css">
 
 
@@ -112,7 +113,7 @@
             </div>
         </div>
     </section>
-    
+
 
     <!--Checkbox-->
     <section id="checkbox">
@@ -391,20 +392,20 @@
                 <!--<h5><b>"Character Counter"</b> [Will Be Continued]</h5>-->
                 <div class="col-6">
                     <div class="md-form">
-                    <input id="input_text" type="text" length="10">
-                    <label for="input_text">Input text</label>
+                        <input id="input_text" type="text" length="10">
+                        <label for="input_text">Input text</label>
                     </div>
                 </div>
                 <div class="col-6">
                     <div class="md-form">
-                    <textarea id="textarea1" length="120" class="md-textarea"></textarea>
-                    <label for="textarea1">Type your text</label>
+                        <textarea id="textarea1" length="120" class="md-textarea"></textarea>
+                        <label for="textarea1">Type your text</label>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    
+
     <!--Date Picker-->
     <section>
         <div class="container">
@@ -437,17 +438,69 @@
         </div>
     </section>
 
+    <!--Rating-->
+    <section>
+        <div class="container">
+            <div class="row">
+                <div id="rateYo"></div>
+                <div>
+                    <button id="getRating">Get Rating</button>
+                    <!--<button id="setRating">Set Random Rating</button>-->
+                </div>
+            </div>
+        </div>
+    </section>
+
 
     <script type="text/javascript" src="js/bin/jquery-3.1.1.min.js"></script>
     <script type="text/javascript" src="js/bin/tether.min.js"></script>
     <script type="text/javascript" src="js/bin/bootstrap.min.js"></script>
     <!--<script type="text/javascript" src="mdb.min.js"></script>-->
+    <script type="text/javascript" src="jquery.rateyo.js"></script>
     <script type="text/javascript" src="mdb.js"></script>
     <script type="text/javascript" src="wNumb.js"></script>
     <script type="text/javascript" src="nouislider.js"></script>
     <!--<script type="text/javascript" src="croppie.js"></script>-->
     <!--<script type="text/javascript" src="cropper.js"></script>-->
+    <script>
+        $(function () {
 
+            $(function () {
+
+                var $rateYo = $("#rateYo").rateYo();
+
+                $("#getRating").click(function () {
+
+                    /* get rating */
+                    var rating = $rateYo.rateYo("rating");
+
+                    window.alert("Its " + rating + " Yo!");
+                });
+
+
+            });
+
+            $(function () {
+
+                $("#rateYo").rateYo()
+                    .on("rateyo.change", function (e, data) {
+
+                        var rating = data.rating;
+                        $(this).next().text(rating);
+                    });
+            });
+
+            $(function () {
+
+                $("#rateYo").rateYo()
+                    .on("rateyo.set", function (e, data) {
+
+                        alert("The rating is set to " + data.rating + "!");
+                    });
+            });
+
+        });
+    </script>
     <script>
         // Material Select Initialization
         $(document).ready(function () {
