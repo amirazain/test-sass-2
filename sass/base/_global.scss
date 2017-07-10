@@ -42,8 +42,7 @@
 a {
     color: $link-color;
     text-decoration: none;
-    cursor: pointer;
-    // Gets rid of tap active state
+    cursor: pointer; // Gets rid of tap active state
     -webkit-tap-highlight-color: transparent;
     &:hover,
     &:focus {
@@ -282,7 +281,7 @@ img {
 }
 
 // Modal footer buttons fix
-.modal-footer .btn+ .btn {
+.modal-footer .btn+.btn {
     margin-bottom: 6px;
 }
 
@@ -370,7 +369,7 @@ body {
 //Media improvement
 .media {
     .media-left {
-        padding:0 10px 10px 0;
+        padding: 0 10px 10px 0;
         img {
             @extend .z-depth-1-half;
         }
@@ -410,10 +409,85 @@ section {
 }
 
 .dropdown-menu .dropdown-item:active {
-    background:#f7f7f9;
+    background: #f7f7f9;
 }
 
 .dropdown-menu {
     transition: all 0.2s cubic-bezier(0.72, 1.2, 0.71, 0.72);
-    
+}
+
+.avatar {
+    margin: 0 auto;
+    object-fit: cover; // border: solid 3px #fff;
+    &.mini {
+        height: 35px;
+        width: 35px;
+    }
+    &.tiny {
+        height: 80px;
+        width: 80px;
+    }
+    &.small {
+        height: 150px;
+        width: 150px;
+    }
+    &.medium {
+        height: 300px;
+        width: 300px;
+    }
+    &.large {
+        height: 450px;
+        width: 450px;
+    }
+    &.big {
+        height: 600px;
+        width: 600px;
+    }
+    &.massive {
+        height: 960px;
+        width: 960px;
+    }
+    &.job {
+        height: 96px;
+        width: 96px;
+    }
+    &.brand {
+        height: 69px;
+        width: 69px;
+    }
+}
+
+.avatar-job {
+    max-height: 6rem;
+    width: 6rem;
+    margin: 0 auto;
+}
+
+.avatar-xs {
+    max-height: 2rem;
+    width: 2rem;
+    margin: 0 auto;
+}
+
+.avatar-sm {
+    max-height: 3rem;
+    width: 3rem;
+    margin: 0 auto;
+}
+
+.avatar-md {
+    max-height: 8rem;
+    width: 8rem;
+    margin: 0 auto;
+}
+
+.avatar-lg {
+    max-height: 12rem;
+    width: 12rem;
+    margin: 0 auto;
+}
+
+.avatar-circle {
+    /*object-fit: cover;*/
+    border-radius: 50%;
 }

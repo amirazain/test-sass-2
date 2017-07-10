@@ -13,10 +13,11 @@
         }
     }
     img {
-        border-bottom-left-radius: 0;
-        border-bottom-right-radius: 0;
+        // border-bottom-left-radius: 0;
+        // border-bottom-right-radius: 0;
         @extend .img-fluid;
     }
+    
     .btn-action {
         // margin: -23px 20px;
         margin-left: auto; // background-color: #4B515D;

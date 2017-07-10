@@ -120,3 +120,21 @@ $chip-bg-color: #e4e4e4 !default;
 $chip-border-color: #9e9e9e !default;
 $chip-selected-color: #26a69a !default;
 $chip-margin: 5px !default;
+
+// 14. Side Navigation
+// ==========================================================================
+
+$sidenav-font-size: 14px !default;
+$sidenav-font-color: rgba(0,0,0,.87) !default;
+$sidenav-bg-color: #fff !default;
+$sidenav-padding: 16px !default;
+$sidenav-item-height: 48px !default;
+$sidenav-line-height: $sidenav-item-height !default;
+
+// 5. Collapsible
+// ==========================================================================
+
+$collapsible-height: 3rem !default;
+$collapsible-line-height: $collapsible-height !default;
+$collapsible-header-color: #fff !default;
+$collapsible-border-color: #ddd !default;
