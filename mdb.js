@@ -13066,375 +13066,745 @@ Waves.init(); /* FORMS */
 
 // SideNav
 (function ($) {
-  var methods = {
-    init : function(options) {
-      var defaults = {
-        menuWidth: 300,
-        edge: 'left',
-        closeOnClick: false,
-        draggable: true
-      };
-      options = $.extend(defaults, options);
 
-      $(this).each(function(){
-        var $this = $(this);
-        var menuId = $this.attr('data-activates');
-        var menu = $("#"+ menuId);
+	var methods = {
+		init: function (options) {
+			var defaults = {
+				menuWidth: 300,
+				edge: 'left',
+				closeOnClick: false,
+				draggable: true,
+				onOpen: null,
+				onClose: null
+			};
+			options = $.extend(defaults, options);
 
-        // Set to width
-        if (options.menuWidth != 300) {
-          menu.css('width', options.menuWidth);
-        }
+			$(this).each(function () {
+				var $this = $(this);
+				var menuId = $this.attr('data-activates');
+				var menu = $("#" + menuId);
 
-        // Add Touch Area
-        var $dragTarget = $('.drag-target[data-sidenav="' + menuId + '"]');
-        if (options.draggable) {
-          // Regenerate dragTarget
-          if ($dragTarget.length) {
-            $dragTarget.remove();
-          }
+				// Set to width
+				if (options.menuWidth != 300) {
+					menu.css('width', options.menuWidth);
+				}
 
-          $dragTarget = $('<div class="drag-target"></div>').attr('data-sidenav', menuId);
-          $('body').append($dragTarget);
-        } else {
-          $dragTarget = $();
-        }
+				// Add Touch Area
+				var $dragTarget = $('.drag-target[data-sidenav="' + menuId + '"]');
+				if (options.draggable) {
+					// Regenerate dragTarget
+					if ($dragTarget.length) {
+						$dragTarget.remove();
+					}
 
-        if (options.edge == 'left') {
-          menu.css('transform', 'translateX(-100%)');
-          $dragTarget.css({'left': 0}); // Add Touch Area
-        }
-        else {
-          menu.addClass('right') // Change text-alignment to right
-            .css('transform', 'translateX(100%)');
-          $dragTarget.css({'right': 0}); // Add Touch Area
-        }
+					$dragTarget = $('<div class="drag-target"></div>').attr('data-sidenav', menuId);
+					$('body').append($dragTarget);
+				} else {
+					$dragTarget = $();
+				}
 
-        // If fixed sidenav, bring menu out
-        if (menu.hasClass('fixed')) {
-            if (window.innerWidth > 992) {
-              menu.css('transform', 'translateX(0)');
-            }
-          }
+				if (options.edge == 'left') {
+					menu.css('transform', 'translateX(-100%)');
+					$dragTarget.css({
+						'left': 0
+					}); // Add Touch Area
+				} else {
+					menu.addClass('side-right') // Change text-alignment to right
+						.css('transform', 'translateX(100%)');
+					$dragTarget.css({
+						'right': 0
+					}); // Add Touch Area
+				}
 
-        // Window resize to reset on large screens fixed
-        if (menu.hasClass('fixed')) {
-          $(window).resize( function() {
-            if (window.innerWidth > 992) {
-              // Close menu if window is resized bigger than 992 and user has fixed sidenav
-              if ($('#sidenav-overlay').length !== 0 && menuOut) {
-                removeMenu(true);
-              }
-              else {
-                // menu.removeAttr('style');
-                menu.css('transform', 'translateX(0%)');
-                // menu.css('width', options.menuWidth);
-              }
-            }
-            else if (menuOut === false){
-              if (options.edge === 'left') {
-                menu.css('transform', 'translateX(-100%)');
-              } else {
-                menu.css('transform', 'translateX(100%)');
-              }
+				// If fixed sidenav, bring menu out
+				if (menu.hasClass('fixed')) {
+					if (window.innerWidth > 992) {
+						menu.css('transform', 'translateX(0)');
+					}
+				}
 
-            }
+				// Window resize to reset on large screens fixed
+				if (menu.hasClass('fixed')) {
+					$(window).resize(function () {
+						if (window.innerWidth > 992) {
+							// Close menu if window is resized bigger than 992 and user has fixed sidenav
+							if ($('#sidenav-overlay').length !== 0 && menuOut) {
+								removeMenu(true);
+							} else {
+								// menu.removeAttr('style');
+								menu.css('transform', 'translateX(0%)');
+								// menu.css('width', options.menuWidth);
+							}
+						} else if (menuOut === false) {
+							if (options.edge === 'left') {
+								menu.css('transform', 'translateX(-100%)');
+							} else {
+								menu.css('transform', 'translateX(100%)');
+							}
 
-          });
-        }
+						}
 
-        // if closeOnClick, then add close event for all a tags in side sideNav
-        if (options.closeOnClick === true) {
-          menu.on("click.itemclick", "a:not(.collapsible-header)", function(){
-            removeMenu();
-          });
-        }
+					});
+				}
 
-        var removeMenu = function(restoreNav) {
-          panning = false;
-          menuOut = false;
-          // Reenable scrolling
-          $('body').css({
-            overflow: '',
-            width: ''
-          });
+				// if closeOnClick, then add close event for all a tags in side sideNav
+				if (options.closeOnClick === true) {
+					menu.on("click.itemclick", "a:not(.collapsible-header)", function () {
+						if (!(window.innerWidth > 992 && menu.hasClass('fixed'))) {
+							removeMenu();
+						}
+					});
+				}
 
-          $('#sidenav-overlay').velocity({opacity: 0}, {duration: 200,
-              queue: false, easing: 'easeOutQuad',
-            complete: function() {
-              $(this).remove();
-            } });
-          if (options.edge === 'left') {
-            // Reset phantom div
-            $dragTarget.css({width: '', right: '', left: '0'});
-            menu.velocity(
-              {'translateX': '-100%'},
-              { duration: 200,
-                queue: false,
-                easing: 'easeOutCubic',
-                complete: function() {
-                  if (restoreNav === true) {
-                    // Restore Fixed sidenav
-                    menu.removeAttr('style');
-                    menu.css('width', options.menuWidth);
-                  }
-                }
+				var removeMenu = function (restoreNav) {
+					panning = false;
+					menuOut = false;
+					// Reenable scrolling
+					$('body').css({
+						overflow: '',
+						width: ''
+					});
 
-            });
-          }
-          else {
-            // Reset phantom div
-            $dragTarget.css({width: '', right: '0', left: ''});
-            menu.velocity(
-              {'translateX': '100%'},
-              { duration: 200,
-                queue: false,
-                easing: 'easeOutCubic',
-                complete: function() {
-                  if (restoreNav === true) {
-                    // Restore Fixed sidenav
-                    menu.removeAttr('style');
-                    menu.css('width', options.menuWidth);
-                  }
-                }
-              });
-          }
-        };
+					$('#sidenav-overlay').velocity({
+						opacity: 0
+					}, {
+						duration: 200,
+						queue: false,
+						easing: 'easeOutQuad',
+						complete: function () {
+							$(this).remove();
+						}
+					});
+					if (options.edge === 'left') {
+						// Reset phantom div
+						$dragTarget.css({
+							width: '',
+							right: '',
+							left: '0'
+						});
+						menu.velocity({
+							'translateX': '-100%'
+						}, {
+							duration: 200,
+							queue: false,
+							easing: 'easeOutCubic',
+							complete: function () {
+								if (restoreNav === true) {
+									// Restore Fixed sidenav
+									menu.removeAttr('style');
+									menu.css('width', options.menuWidth);
+								}
+							}
 
+						});
+					} else {
+						// Reset phantom div
+						$dragTarget.css({
+							width: '',
+							right: '0',
+							left: ''
+						});
+						menu.velocity({
+							'translateX': '100%'
+						}, {
+							duration: 200,
+							queue: false,
+							easing: 'easeOutCubic',
+							complete: function () {
+								if (restoreNav === true) {
+									// Restore Fixed sidenav
+									menu.removeAttr('style');
+									menu.css('width', options.menuWidth);
+								}
+							}
+						});
+					}
 
-
-        // Touch Event
-        var panning = false;
-        var menuOut = false;
-
-        if (options.draggable) {
-          $dragTarget.on('click', function(){
-            if (menuOut) {
-              removeMenu();
-            }
-          });
-
-          $dragTarget.hammer({
-            prevent_default: false
-          }).bind('pan', function(e) {
-
-            if (e.gesture.pointerType == "touch") {
-
-              var direction = e.gesture.direction;
-              var x = e.gesture.center.x;
-              var y = e.gesture.center.y;
-              var velocityX = e.gesture.velocityX;
-
-              // Disable Scrolling
-              var $body = $('body');
-              var $overlay = $('#sidenav-overlay');
-              var oldWidth = $body.innerWidth();
-              $body.css('overflow', 'hidden');
-              $body.width(oldWidth);
-
-              // If overlay does not exist, create one and if it is clicked, close menu
-              if ($overlay.length === 0) {
-                $overlay = $('<div id="sidenav-overlay"></div>');
-                $overlay.css('opacity', 0).click( function(){
-                  removeMenu();
-                });
-                $('body').append($overlay);
-              }
-
-              // Keep within boundaries
-              if (options.edge === 'left') {
-                if (x > options.menuWidth) { x = options.menuWidth; }
-                else if (x < 0) { x = 0; }
-              }
-
-              if (options.edge === 'left') {
-                // Left Direction
-                if (x < (options.menuWidth / 2)) { menuOut = false; }
-                // Right Direction
-                else if (x >= (options.menuWidth / 2)) { menuOut = true; }
-                menu.css('transform', 'translateX(' + (x - options.menuWidth) + 'px)');
-              }
-              else {
-                // Left Direction
-                if (x < (window.innerWidth - options.menuWidth / 2)) {
-                  menuOut = true;
-                }
-                // Right Direction
-                else if (x >= (window.innerWidth - options.menuWidth / 2)) {
-                 menuOut = false;
-               }
-                var rightPos = (x - options.menuWidth / 2);
-                if (rightPos < 0) {
-                  rightPos = 0;
-                }
-
-                menu.css('transform', 'translateX(' + rightPos + 'px)');
-              }
+					// Callback
+					if (typeof (options.onClose) === 'function') {
+						options.onClose.call(this, menu);
+					}
+				}
 
 
-              // Percentage overlay
-              var overlayPerc;
-              if (options.edge === 'left') {
-                overlayPerc = x / options.menuWidth;
-                $overlay.velocity({opacity: overlayPerc }, {duration: 10, queue: false, easing: 'easeOutQuad'});
-              }
-              else {
-                overlayPerc = Math.abs((x - window.innerWidth) / options.menuWidth);
-                $overlay.velocity({opacity: overlayPerc }, {duration: 10, queue: false, easing: 'easeOutQuad'});
-              }
-            }
 
-          }).bind('panend', function(e) {
+				// Touch Event
+				var panning = false;
+				var menuOut = false;
 
-            if (e.gesture.pointerType == "touch") {
-              var $overlay = $('#sidenav-overlay');
-              var velocityX = e.gesture.velocityX;
-              var x = e.gesture.center.x;
-              var leftPos = x - options.menuWidth;
-              var rightPos = x - options.menuWidth / 2;
-              if (leftPos > 0 ) {
-                leftPos = 0;
-              }
-              if (rightPos < 0) {
-                rightPos = 0;
-              }
-              panning = false;
+				if (options.draggable) {
+					$dragTarget.on('click', function () {
+						if (menuOut) {
+							removeMenu();
+						}
+					});
 
-              if (options.edge === 'left') {
-                // If velocityX <= 0.3 then the user is flinging the menu closed so ignore menuOut
-                if ((menuOut && velocityX <= 0.3) || velocityX < -0.5) {
-                  // Return menu to open
-                  if (leftPos !== 0) {
-                    menu.velocity({'translateX': [0, leftPos]}, {duration: 300, queue: false, easing: 'easeOutQuad'});
-                  }
+					$dragTarget.hammer({
+						prevent_default: false
+					}).on('pan', function (e) {
 
-                  $overlay.velocity({opacity: 1 }, {duration: 50, queue: false, easing: 'easeOutQuad'});
-                  $dragTarget.css({width: '50%', right: 0, left: ''});
-                  menuOut = true;
-                }
-                else if (!menuOut || velocityX > 0.3) {
-                  // Enable Scrolling
-                  $('body').css({
-                    overflow: '',
-                    width: ''
-                  });
-                  // Slide menu closed
-                  menu.velocity({'translateX': [-1 * options.menuWidth - 10, leftPos]}, {duration: 200, queue: false, easing: 'easeOutQuad'});
-                  $overlay.velocity({opacity: 0 }, {duration: 200, queue: false, easing: 'easeOutQuad',
-                    complete: function () {
-                      $(this).remove();
-                    }});
-                  $dragTarget.css({width: '10px', right: '', left: 0});
-                }
-              }
-              else {
-                if ((menuOut && velocityX >= -0.3) || velocityX > 0.5) {
-                  // Return menu to open
-                  if (rightPos !== 0) {
-                    menu.velocity({'translateX': [0, rightPos]}, {duration: 300, queue: false, easing: 'easeOutQuad'});
-                  }
+						if (e.gesture.pointerType == "touch") {
 
-                  $overlay.velocity({opacity: 1 }, {duration: 50, queue: false, easing: 'easeOutQuad'});
-                  $dragTarget.css({width: '50%', right: '', left: 0});
-                  menuOut = true;
-                }
-                else if (!menuOut || velocityX < -0.3) {
-                  // Enable Scrolling
-                  $('body').css({
-                    overflow: '',
-                    width: ''
-                  });
+							var direction = e.gesture.direction;
+							var x = e.gesture.center.x;
+							var y = e.gesture.center.y;
+							var velocityX = e.gesture.velocityX;
 
-                  // Slide menu closed
-                  menu.velocity({'translateX': [options.menuWidth + 10, rightPos]}, {duration: 200, queue: false, easing: 'easeOutQuad'});
-                  $overlay.velocity({opacity: 0 }, {duration: 200, queue: false, easing: 'easeOutQuad',
-                    complete: function () {
-                      $(this).remove();
-                    }});
-                  $dragTarget.css({width: '10px', right: 0, left: ''});
-                }
-              }
+							// Vertical scroll bugfix
+							if (x === 0 && y === 0) {
+								return;
+							}
 
-            }
-          });
-        }
+							// Disable Scrolling
+							var $body = $('body');
+							var $overlay = $('#sidenav-overlay');
+							var oldWidth = $body.innerWidth();
+							$body.css('overflow', 'hidden');
+							$body.width(oldWidth);
 
-        $this.off('click.sidenav').on('click.sidenav', function() {
-          if (menuOut === true) {
-            menuOut = false;
-            panning = false;
-            removeMenu();
-          }
-          else {
+							// If overlay does not exist, create one and if it is clicked, close menu
+							if ($overlay.length === 0) {
+								$overlay = $('<div id="sidenav-overlay"></div>');
+								$overlay.css('opacity', 0).click(function () {
+									removeMenu();
+								});
 
-            // Disable Scrolling
-            var $body = $('body');
-            var $overlay = $('<div id="sidenav-overlay"></div>');
-            var oldWidth = $body.innerWidth();
-            $body.css('overflow', 'hidden');
-            $body.width(oldWidth);
+								// Run 'onOpen' when sidenav is opened via touch/swipe if applicable
+								if (typeof (options.onOpen) === 'function') {
+									options.onOpen.call(this, menu);
+								}
 
-            // Push current drag target on top of DOM tree
-            $('body').append($dragTarget);
+								$('body').append($overlay);
+							}
 
-            if (options.edge === 'left') {
-              $dragTarget.css({width: '50%', right: 0, left: ''});
-              menu.velocity({'translateX': [0, -1 * options.menuWidth]}, {duration: 300, queue: false, easing: 'easeOutQuad'});
-            }
-            else {
-              $dragTarget.css({width: '50%', right: '', left: 0});
-              menu.velocity({'translateX': [0, options.menuWidth]}, {duration: 300, queue: false, easing: 'easeOutQuad'});
-            }
+							// Keep within boundaries
+							if (options.edge === 'left') {
+								if (x > options.menuWidth) {
+									x = options.menuWidth;
+								} else if (x < 0) {
+									x = 0;
+								}
+							}
 
-            $overlay.css('opacity', 0)
-            .click(function(){
-              menuOut = false;
-              panning = false;
-              removeMenu();
-              $overlay.velocity({opacity: 0}, {duration: 300, queue: false, easing: 'easeOutQuad',
-                complete: function() {
-                  $(this).remove();
-                } });
+							if (options.edge === 'left') {
+								// Left Direction
+								if (x < (options.menuWidth / 2)) {
+									menuOut = false;
+								}
+								// Right Direction
+								else if (x >= (options.menuWidth / 2)) {
+									menuOut = true;
+								}
+								menu.css('transform', 'translateX(' + (x - options.menuWidth) + 'px)');
+							} else {
+								// Left Direction
+								if (x < (window.innerWidth - options.menuWidth / 2)) {
+									menuOut = true;
+								}
+								// Right Direction
+								else if (x >= (window.innerWidth - options.menuWidth / 2)) {
+									menuOut = false;
+								}
+								var rightPos = (x - options.menuWidth / 2);
+								if (rightPos < 0) {
+									rightPos = 0;
+								}
 
-            });
-            $('body').append($overlay);
-            $overlay.velocity({opacity: 1}, {duration: 300, queue: false, easing: 'easeOutQuad',
-              complete: function () {
-                menuOut = true;
-                panning = false;
-              }
-            });
-          }
-
-          return false;
-        });
-      });
+								menu.css('transform', 'translateX(' + rightPos + 'px)');
+							}
 
 
-    },
-    destroy: function () {
-      var $overlay = $('#sidenav-overlay');
-      var $dragTarget = $('.drag-target[data-sidenav="' + $(this).attr('data-activates') + '"]');
-      $overlay.trigger('click');
-      $dragTarget.remove();
-      $(this).off('click');
-      $overlay.remove();
-    },
-    show : function() {
-      this.trigger('click');
-    },
-    hide : function() {
-      $('#sidenav-overlay').trigger('click');
-    }
-  };
-  $.fn.sideNav = function(methodOrOptions) {
-    if ( methods[methodOrOptions] ) {
-      return methods[ methodOrOptions ].apply( this, Array.prototype.slice.call( arguments, 1 ));
-    } else if ( typeof methodOrOptions === 'object' || ! methodOrOptions ) {
-      // Default to "init"
-      return methods.init.apply( this, arguments );
-    } else {
-      $.error( 'Method ' +  methodOrOptions + ' does not exist on jQuery.sideNav' );
-    }
-  }; // Plugin end
-}( jQuery ));
+							// Percentage overlay
+							var overlayPerc;
+							if (options.edge === 'left') {
+								overlayPerc = x / options.menuWidth;
+								$overlay.velocity({
+									opacity: overlayPerc
+								}, {
+									duration: 10,
+									queue: false,
+									easing: 'easeOutQuad'
+								});
+							} else {
+								overlayPerc = Math.abs((x - window.innerWidth) / options.menuWidth);
+								$overlay.velocity({
+									opacity: overlayPerc
+								}, {
+									duration: 10,
+									queue: false,
+									easing: 'easeOutQuad'
+								});
+							}
+						}
+
+					}).on('panend', function (e) {
+
+						if (e.gesture.pointerType == "touch") {
+							var $overlay = $('#sidenav-overlay');
+							var velocityX = e.gesture.velocityX;
+							var x = e.gesture.center.x;
+							var leftPos = x - options.menuWidth;
+							var rightPos = x - options.menuWidth / 2;
+							if (leftPos > 0) {
+								leftPos = 0;
+							}
+							if (rightPos < 0) {
+								rightPos = 0;
+							}
+							panning = false;
+
+							if (options.edge === 'left') {
+								// If velocityX <= 0.3 then the user is flinging the menu closed so ignore menuOut
+								if ((menuOut && velocityX <= 0.3) || velocityX < -0.5) {
+									// Return menu to open
+									if (leftPos !== 0) {
+										menu.velocity({
+											'translateX': [0, leftPos]
+										}, {
+											duration: 300,
+											queue: false,
+											easing: 'easeOutQuad'
+										});
+									}
+
+									$overlay.velocity({
+										opacity: 1
+									}, {
+										duration: 50,
+										queue: false,
+										easing: 'easeOutQuad'
+									});
+									$dragTarget.css({
+										width: '50%',
+										right: 0,
+										left: ''
+									});
+									menuOut = true;
+								} else if (!menuOut || velocityX > 0.3) {
+									// Enable Scrolling
+									$('body').css({
+										overflow: '',
+										width: ''
+									});
+									// Slide menu closed
+									menu.velocity({
+										'translateX': [-1 * options.menuWidth - 10, leftPos]
+									}, {
+										duration: 200,
+										queue: false,
+										easing: 'easeOutQuad'
+									});
+									$overlay.velocity({
+										opacity: 0
+									}, {
+										duration: 200,
+										queue: false,
+										easing: 'easeOutQuad',
+										complete: function () {
+											// Run 'onClose' when sidenav is closed via touch/swipe if applicable
+											if (typeof (options.onClose) === 'function') {
+												options.onClose.call(this, menu);
+											}
+
+											$(this).remove();
+										}
+									});
+									$dragTarget.css({
+										width: '10px',
+										right: '',
+										left: 0
+									});
+								}
+							} else {
+								if ((menuOut && velocityX >= -0.3) || velocityX > 0.5) {
+									// Return menu to open
+									if (rightPos !== 0) {
+										menu.velocity({
+											'translateX': [0, rightPos]
+										}, {
+											duration: 300,
+											queue: false,
+											easing: 'easeOutQuad'
+										});
+									}
+
+									$overlay.velocity({
+										opacity: 1
+									}, {
+										duration: 50,
+										queue: false,
+										easing: 'easeOutQuad'
+									});
+									$dragTarget.css({
+										width: '50%',
+										right: '',
+										left: 0
+									});
+									menuOut = true;
+								} else if (!menuOut || velocityX < -0.3) {
+									// Enable Scrolling
+									$('body').css({
+										overflow: '',
+										width: ''
+									});
+
+									// Slide menu closed
+									menu.velocity({
+										'translateX': [options.menuWidth + 10, rightPos]
+									}, {
+										duration: 200,
+										queue: false,
+										easing: 'easeOutQuad'
+									});
+									$overlay.velocity({
+										opacity: 0
+									}, {
+										duration: 200,
+										queue: false,
+										easing: 'easeOutQuad',
+										complete: function () {
+											// Run 'onClose' when sidenav is closed via touch/swipe if applicable
+											if (typeof (options.onClose) === 'function') {
+												options.onClose.call(this, menu);
+											}
+
+											$(this).remove();
+										}
+									});
+									$dragTarget.css({
+										width: '10px',
+										right: 0,
+										left: ''
+									});
+								}
+							}
+
+						}
+					});
+				}
+
+				$this.off('click.sidenav').on('click.sidenav', function () {
+					if (menuOut === true) {
+						menuOut = false;
+						panning = false;
+						removeMenu();
+					} else {
+
+						// Disable Scrolling
+						var $body = $('body');
+						var $overlay = $('<div id="sidenav-overlay"></div>');
+						var oldWidth = $body.innerWidth();
+						$body.css('overflow', 'hidden');
+						$body.width(oldWidth);
+
+						// Push current drag target on top of DOM tree
+						$('body').append($dragTarget);
+
+						if (options.edge === 'left') {
+							$dragTarget.css({
+								width: '50%',
+								right: 0,
+								left: ''
+							});
+							menu.velocity({
+								'translateX': [0, -1 * options.menuWidth]
+							}, {
+								duration: 300,
+								queue: false,
+								easing: 'easeOutQuad'
+							});
+						} else {
+							$dragTarget.css({
+								width: '50%',
+								right: '',
+								left: 0
+							});
+							menu.velocity({
+								'translateX': [0, options.menuWidth]
+							}, {
+								duration: 300,
+								queue: false,
+								easing: 'easeOutQuad'
+							});
+						}
+
+						// Overlay close on click
+						$overlay.css('opacity', 0)
+							.click(function () {
+								menuOut = false;
+								panning = false;
+								removeMenu();
+								$overlay.velocity({
+									opacity: 0
+								}, {
+									duration: 300,
+									queue: false,
+									easing: 'easeOutQuad',
+									complete: function () {
+										$(this).remove();
+									}
+								});
+							});
+
+						// Append body
+						$('body').append($overlay);
+						$overlay.velocity({
+							opacity: 1
+						}, {
+							duration: 300,
+							queue: false,
+							easing: 'easeOutQuad',
+							complete: function () {
+								menuOut = true;
+								panning = false;
+							}
+						});
+
+						// Callback
+						if (typeof (options.onOpen) === 'function') {
+							options.onOpen.call(this, menu);
+						}
+					}
+
+					return false;
+				});
+			});
+
+
+		},
+		destroy: function () {
+			var $overlay = $('#sidenav-overlay');
+			var $dragTarget = $('.drag-target[data-sidenav="' + $(this).attr('data-activates') + '"]');
+			$overlay.trigger('click');
+			$dragTarget.remove();
+			$(this).off('click');
+			$overlay.remove();
+		},
+		show: function () {
+			this.trigger('click');
+		},
+		hide: function () {
+			$('#sidenav-overlay').trigger('click');
+		}
+	};
+
+
+	$.fn.sideNav = function (methodOrOptions) {
+		if (methods[methodOrOptions]) {
+			return methods[methodOrOptions].apply(this, Array.prototype.slice.call(arguments, 1));
+		} else if (typeof methodOrOptions === 'object' || !methodOrOptions) {
+			// Default to "init"
+			return methods.init.apply(this, arguments);
+		} else {
+			$.error('Method ' + methodOrOptions + ' does not exist on jQuery.sideNav');
+		}
+	}; // Plugin end
+}(jQuery));
+
+// Collapsible
+(function ($) {
+	$.fn.collapsible = function (options, methodParam) {
+		var defaults = {
+			accordion: undefined,
+			onOpen: undefined,
+			onClose: undefined
+		};
+
+		var methodName = options;
+		options = $.extend(defaults, options);
+
+
+		return this.each(function () {
+
+			var $this = $(this);
+
+			var $panel_headers = $(this).find('> li > .collapsible-header');
+
+			var collapsible_type = $this.data("collapsible");
+
+			/****************
+			Helper Functions
+			****************/
+
+			// Accordion Open
+			function accordionOpen(object) {
+				$panel_headers = $this.find('> li > .collapsible-header');
+				if (object.hasClass('active')) {
+					object.parent().addClass('active');
+				} else {
+					object.parent().removeClass('active');
+				}
+				if (object.parent().hasClass('active')) {
+					object.siblings('.collapsible-body').stop(true, false).slideDown({
+						duration: 350,
+						easing: "easeOutQuart",
+						queue: false,
+						complete: function () {
+							$(this).css('height', '');
+						}
+					});
+				} else {
+					object.siblings('.collapsible-body').stop(true, false).slideUp({
+						duration: 350,
+						easing: "easeOutQuart",
+						queue: false,
+						complete: function () {
+							$(this).css('height', '');
+						}
+					});
+				}
+
+				$panel_headers.not(object).removeClass('active').parent().removeClass('active');
+
+				// Close previously open accordion elements.
+				$panel_headers.not(object).parent().children('.collapsible-body').stop(true, false).each(function () {
+					if ($(this).is(':visible')) {
+						$(this).slideUp({
+							duration: 350,
+							easing: "easeOutQuart",
+							queue: false,
+							complete: function () {
+								$(this).css('height', '');
+								execCallbacks($(this).siblings('.collapsible-header'));
+							}
+						});
+					}
+				});
+			}
+
+			// Expandable Open
+			function expandableOpen(object) {
+				if (object.hasClass('active')) {
+					object.parent().addClass('active');
+				} else {
+					object.parent().removeClass('active');
+				}
+				if (object.parent().hasClass('active')) {
+					object.siblings('.collapsible-body').stop(true, false).slideDown({
+						duration: 350,
+						easing: "easeOutQuart",
+						queue: false,
+						complete: function () {
+							$(this).css('height', '');
+						}
+					});
+				} else {
+					object.siblings('.collapsible-body').stop(true, false).slideUp({
+						duration: 350,
+						easing: "easeOutQuart",
+						queue: false,
+						complete: function () {
+							$(this).css('height', '');
+						}
+					});
+				}
+			}
+
+			// Open collapsible. object: .collapsible-header
+			function collapsibleOpen(object, noToggle) {
+				if (!noToggle) {
+					object.toggleClass('active');
+				}
+
+				if (options.accordion || collapsible_type === "accordion" || collapsible_type === undefined) { // Handle Accordion
+					accordionOpen(object);
+				} else { // Handle Expandables
+					expandableOpen(object);
+				}
+
+				execCallbacks(object);
+			}
+
+			// Handle callbacks
+			function execCallbacks(object) {
+				if (object.hasClass('active')) {
+					if (typeof (options.onOpen) === "function") {
+						options.onOpen.call(this, object.parent());
+					}
+				} else {
+					if (typeof (options.onClose) === "function") {
+						options.onClose.call(this, object.parent());
+					}
+				}
+			}
+
+			/**
+			 * Check if object is children of panel header
+			 * @param  {Object}  object Jquery object
+			 * @return {Boolean} true if it is children
+			 */
+			function isChildrenOfPanelHeader(object) {
+
+				var panelHeader = getPanelHeader(object);
+
+				return panelHeader.length > 0;
+			}
+
+			/**
+			 * Get panel header from a children element
+			 * @param  {Object} object Jquery object
+			 * @return {Object} panel header object
+			 */
+			function getPanelHeader(object) {
+
+				return object.closest('li > .collapsible-header');
+			}
+
+
+			// Turn off any existing event handlers
+			function removeEventHandlers() {
+				$this.off('click.collapse', '> li > .collapsible-header');
+			}
+
+			/*****  End Helper Functions  *****/
+
+
+			// Methods
+			if (methodName === 'destroy') {
+				removeEventHandlers();
+				return;
+			} else if (methodParam >= 0 &&
+				methodParam < $panel_headers.length) {
+				var $curr_header = $panel_headers.eq(methodParam);
+				if ($curr_header.length &&
+					(methodName === 'open' ||
+						(methodName === 'close' &&
+							$curr_header.hasClass('active')))) {
+					collapsibleOpen($curr_header);
+				}
+				return;
+			}
+
+
+			removeEventHandlers();
+
+
+			// Add click handler to only direct collapsible header children
+			$this.on('click.collapse', '> li > .collapsible-header', function (e) {
+				var element = $(e.target);
+
+				if (isChildrenOfPanelHeader(element)) {
+					element = getPanelHeader(element);
+				}
+
+				collapsibleOpen(element);
+			});
+
+
+			// Open first active
+			if (options.accordion || collapsible_type === "accordion" || collapsible_type === undefined) { // Handle Accordion
+				collapsibleOpen($panel_headers.filter('.active').first(), true);
+
+			} else { // Handle Expandables
+				$panel_headers.filter('.active').each(function () {
+					collapsibleOpen($(this), true);
+				});
+			}
+
+		});
+	};
+
+	$(document).ready(function () {
+		$('.collapsible').collapsible();
+	});
+}(jQuery));

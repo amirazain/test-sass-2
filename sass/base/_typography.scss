@@ -192,8 +192,8 @@
     .between-sections {
         margin-bottom: 4rem;
     }
-    /*Font Weight*/
 
+    /*Font Weight*/
     .font-weight-light {
         font-weight: 300!important;
     }
@@ -204,7 +204,12 @@
 
     .font-weight-black {
         font-weight: 900!important;
-    } // Letter Spacing
+    } 
+    
+    // Letter Spacing
+    .letter-space-mini{
+        letter-spacing: 1px;
+    }
     .letter-space-small {
         letter-spacing: 2px;
     }
