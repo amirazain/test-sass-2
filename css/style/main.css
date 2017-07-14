@@ -2231,15 +2231,6 @@ body {
   font-weight: 500;
   border-left: none; }
 
-.nav-pills .nav-item.open .nav-link,
-.nav-pills .nav-item.open .nav-link:focus,
-.nav-pills .nav-item.open .nav-link:hover,
-.nav-pills .nav-link.active,
-.nav-pills .nav-link.active:focus,
-.nav-pills .nav-link.active:hover {
-  background-color: transparent;
-  color: #000; }
-
 .disabled {
   cursor: not-allowed !important; }
 
@@ -2267,7 +2258,6 @@ body {
 
 .card-block h5 {
   margin-bottom: 1rem;
-  font-size: 1rem;
   font-weight: 400; }
 
 .card-block h3 {
@@ -2297,39 +2287,39 @@ section {
   margin: 0 auto;
   object-fit: cover; }
 
-.avatar.mini, .chip img.mini {
+.avatar.avatar-mini, .chip img.avatar-mini {
   height: 35px;
   width: 35px; }
 
-.avatar.tiny, .chip img.tiny {
+.avatar.avatar-tiny, .chip img.avatar-tiny {
   height: 80px;
   width: 80px; }
 
-.avatar.small, .chip img.small {
+.avatar.avatar-small, .chip img.avatar-small {
   height: 150px;
   width: 150px; }
 
-.avatar.medium, .chip img.medium {
+.avatar.avatar-medium, .chip img.avatar-medium {
   height: 300px;
   width: 300px; }
 
-.avatar.large, .chip img.large {
+.avatar.avatar-large, .chip img.avatar-large {
   height: 450px;
   width: 450px; }
 
-.avatar.big, .chip img.big {
+.avatar.avatar-big, .chip img.avatar-big {
   height: 600px;
   width: 600px; }
 
-.avatar.massive, .chip img.massive {
+.avatar.avatar-massive, .chip img.avatar-massive {
   height: 960px;
   width: 960px; }
 
-.avatar.job, .chip img.job {
+.avatar.avatar-job, .chip img.avatar-job {
   height: 96px;
   width: 96px; }
 
-.avatar.brand, .chip img.brand {
+.avatar.avatar-brand, .chip img.avatar-brand {
   height: 69px;
   width: 69px; }
 
@@ -7320,128 +7310,6 @@ Skip to content This repository Search .picker {
 button.picker__today:focus, button.picker__clear:focus, button.picker__close:focus {
   background-color: #ecf2fc; }
 
-/* ==========================================================================
-   $BASE-TIME-PICKER
-   ========================================================================== */
-/**
- * The list of times.
- */
-.picker__list {
-  list-style: none;
-  padding: 0.75em 0 4.2em;
-  margin: 0; }
-
-/**
- * The times on the clock.
- */
-.picker__list-item {
-  border-bottom: 1px solid #dddddd;
-  border-top: 1px solid #dddddd;
-  margin-bottom: -1px;
-  position: relative;
-  background: #ffffff;
-  padding: .75em 1.25em; }
-
-@media (min-height: 46.75em) {
-  .picker__list-item {
-    padding: .5em 1em; } }
-
-/* Hovered time */
-.picker__list-item:hover {
-  cursor: pointer;
-  color: #000000;
-  background: #b1dcfb;
-  border-color: #0089ec;
-  z-index: 10; }
-
-/* Highlighted and hovered/focused time */
-.picker__list-item--highlighted {
-  border-color: #0089ec;
-  z-index: 10; }
-
-.picker__list-item--highlighted:hover,
-.picker--focused .picker__list-item--highlighted {
-  cursor: pointer;
-  color: #000000;
-  background: #b1dcfb; }
-
-/* Selected and hovered/focused time */
-.picker__list-item--selected,
-.picker__list-item--selected:hover,
-.picker--focused .picker__list-item--selected {
-  background: #0089ec;
-  color: #ffffff;
-  z-index: 10; }
-
-/* Disabled time */
-.picker__list-item--disabled,
-.picker__list-item--disabled:hover,
-.picker--focused .picker__list-item--disabled {
-  background: #f5f5f5;
-  border-color: #f5f5f5;
-  color: #dddddd;
-  cursor: default;
-  border-color: #dddddd;
-  z-index: auto; }
-
-/**
- * The clear button
- */
-.picker--time .picker__button--clear {
-  display: block;
-  width: 80%;
-  margin: 1em auto 0;
-  padding: 1em 1.25em;
-  background: none;
-  border: 0;
-  font-weight: 500;
-  font-size: .67em;
-  text-align: center;
-  text-transform: uppercase;
-  color: #666; }
-
-.picker--time .picker__button--clear:hover,
-.picker--time .picker__button--clear:focus {
-  color: #000000;
-  background: #b1dcfb;
-  background: #ee2200;
-  border-color: #ee2200;
-  cursor: pointer;
-  color: #ffffff;
-  outline: none; }
-
-.picker--time .picker__button--clear:before {
-  top: -0.25em;
-  color: #666;
-  font-size: 1.25em;
-  font-weight: bold; }
-
-.picker--time .picker__button--clear:hover:before,
-.picker--time .picker__button--clear:focus:before {
-  color: #ffffff; }
-
-/* ==========================================================================
-   $DEFAULT-TIME-PICKER
-   ========================================================================== */
-/**
- * The frame the bounds the time picker.
- */
-.picker--time .picker__frame {
-  min-width: 256px;
-  max-width: 320px; }
-
-/**
- * The picker box.
- */
-.picker--time .picker__box {
-  font-size: 1em;
-  background: #f2f2f2;
-  padding: 0; }
-
-@media (min-height: 40.125em) {
-  .picker--time .picker__box {
-    margin-bottom: 5em; } }
-
 .side-nav {
   position: fixed;
   width: 300px;
@@ -7466,8 +7334,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   left: auto; }
 
 .side-nav .collapsible {
-  margin: 0;
-  padding: 0; }
+  margin: 0; }
 
 .side-nav li {
   float: none;
@@ -7673,10 +7540,6 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
 .side-nav.fixed .collapsible-header:hover {
   background-color: rgba(0, 0, 0, 0.05); }
 
-.side-nav .collapsible-header i,
-.side-nav.fixed .collapsible-header i {
-  line-height: inherit; }
-
 .side-nav .collapsible-body,
 .side-nav.fixed .collapsible-body {
   border: 0;
@@ -7698,6 +7561,68 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
 .collapsible.popout > li.active {
   box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
   margin: 16px 0; }
+
+.nav .nav-tabs {
+  background-color: transparent;
+  border: 0;
+  border-color: transparent; }
+
+.nav .nav-tabs .tabs-1 {
+  position: relative;
+  overflow-x: auto;
+  overflow-y: hidden;
+  height: 48px;
+  width: 100%;
+  background-color: #fff;
+  margin: 0 auto;
+  white-space: nowrap; }
+
+.nav .nav-tabs .tabs-1 .nav-item {
+  display: inline-block;
+  text-align: center;
+  line-height: 48px;
+  height: 48px;
+  padding: 0;
+  margin: 0;
+  text-transform: uppercase; }
+
+.nav .nav-tabs .tabs-1 .nav-item a {
+  color: rgba(66, 133, 244, 0.7);
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0 24px;
+  font-size: 14px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  transition: color .28s ease; }
+
+.nav .nav-tabs .tabs-1 .nav-item a:hover, .nav .nav-tabs .tabs-1 .nav-item a.active {
+  background-color: transparent;
+  color: #4285F4; }
+
+.nav .nav-tabs .tabs-1 .nav-item.disabled a,
+.nav .nav-tabs .tabs-1 .nav-item.disabled a:hover {
+  color: rgba(66, 133, 244, 0.7);
+  cursor: default; }
+
+.nav .nav-tabs .tabs-1 .indicator {
+  position: absolute;
+  bottom: 0;
+  height: 2px;
+  background-color: #8ab4f8;
+  will-change: left, right; }
+
+@media only screen and (max-width: 992px) {
+  .tabs {
+    display: flex; }
+  .tabs .tab {
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1; }
+  .tabs .tab a {
+    padding: 0 12px; } }
 
 .navbar {
   font-weight: 300; }

@@ -329,15 +329,15 @@ body {
 }
 
 //Nav normalize
-.nav-pills .nav-item.open .nav-link,
-.nav-pills .nav-item.open .nav-link:focus,
-.nav-pills .nav-item.open .nav-link:hover,
-.nav-pills .nav-link.active,
-.nav-pills .nav-link.active:focus,
-.nav-pills .nav-link.active:hover {
-    background-color: transparent;
-    color: #000;
-}
+// .nav-pills .nav-item.open .nav-link,
+// .nav-pills .nav-item.open .nav-link:focus,
+// .nav-pills .nav-item.open .nav-link:hover,
+// .nav-pills .nav-link.active,
+// .nav-pills .nav-link.active:focus,
+// .nav-pills .nav-link.active:hover {
+//     background-color: transparent;
+//     color: #000;
+// }
 
 //Disabled cursor
 .disabled {
@@ -379,7 +379,7 @@ body {
 .card-block {
     h5 {
         margin-bottom: 1rem;
-        font-size: 1rem;
+        // font-size: 1rem;
         font-weight: 400;
     }
     h3 {
@@ -418,40 +418,43 @@ section {
 
 .avatar {
     margin: 0 auto;
-    object-fit: cover; // border: solid 3px #fff;
-    &.mini {
+    object-fit: cover; 
+
+    // border: solid 3px #fff;
+    // background-size: cover ;
+    &.avatar-mini {
         height: 35px;
         width: 35px;
     }
-    &.tiny {
+    &.avatar-tiny {
         height: 80px;
         width: 80px;
     }
-    &.small {
+    &.avatar-small {
         height: 150px;
         width: 150px;
     }
-    &.medium {
+    &.avatar-medium {
         height: 300px;
         width: 300px;
     }
-    &.large {
+    &.avatar-large {
         height: 450px;
         width: 450px;
     }
-    &.big {
+    &.avatar-big {
         height: 600px;
         width: 600px;
     }
-    &.massive {
+    &.avatar-massive {
         height: 960px;
         width: 960px;
     }
-    &.job {
+    &.avatar-job {
         height: 96px;
         width: 96px;
     }
-    &.brand {
+    &.avatar-brand {
         height: 69px;
         width: 69px;
     }
