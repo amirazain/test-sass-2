@@ -13830,7 +13830,7 @@ Waves.init(); /* FORMS */
 				var $this = $(this),
 					window_width = $(window).width();
 
-				var $active, $content, $links = $this.find('li.nav-item > a.nav-links'),
+				var $active, $content, $links = $this.find('li.nav-item > a'),
 					$tabs_width = $this.width(),
 					$tabs_content = $(),
 					$tabs_wrapper,
@@ -13845,7 +13845,7 @@ Waves.init(); /* FORMS */
 				// Finds right attribute for indicator based on active tab.
 				// el: jQuery Object
 				var calcRightPos = function (el) {
-					return Math.ceil($tabs_width - el.position().left - el.outerWidth() - $this.scrollLeft());
+					return Math.ceil($tabs_width - el.position().left - el[0].getBoundingClientRect().width - $this.scrollLeft());
 				};
 
 				// Finds left attribute for indicator based on active tab.
@@ -13906,10 +13906,10 @@ Waves.init(); /* FORMS */
 
 				// If no match is found, use the first link or any with class 'active' as the initial active tab.
 				if ($active.length === 0) {
-					$active = $(this).find('li.tab a.active').first();
+					$active = $(this).find('li.nav-item > a.nav-link.active').first();
 				}
 				if ($active.length === 0) {
-					$active = $(this).find('li.tab a').first();
+					$active = $(this).find('li.nav-item > a.nav-link').first();
 				}
 
 				$active.addClass('active');
@@ -13925,7 +13925,7 @@ Waves.init(); /* FORMS */
 
 				// append indicator then set indicator width to tab width
 				if (!$this.find('.indicator').length) {
-					$this.append('<div class="indicator"></div>');
+					$this.append('<li class="indicator"></li>');
 				}
 				$indicator = $this.find('.indicator');
 
@@ -13977,8 +13977,13 @@ Waves.init(); /* FORMS */
 							if (!clicked) {
 								var prev_index = index;
 								index = $tabs_wrapper.index(item);
+								$active.removeClass('active');
 								$active = $links.eq(index);
+								$active.addClass('active');
 								animateIndicator(prev_index);
+								if (typeof (options.onShow) === "function") {
+									options.onShow.call($this[0], $content);
+								}
 							}
 						},
 					});
@@ -13991,8 +13996,8 @@ Waves.init(); /* FORMS */
 
 
 				// Bind the click event handler
-				$this.off('click.tabs').on('click.tabs', 'a', function (e) {
-					if ($(this).parent().hasClass('disabled')) {
+				$this.off('click.tabs.tabs-material').on('click.tabs.tabs-material', 'li.nav-item > a.nav-link', function (e) {
+					if ($(this).hasClass('disabled')) {
 						e.preventDefault();
 						return;
 					}
@@ -14013,7 +14018,7 @@ Waves.init(); /* FORMS */
 					// Update the variables with the new link and content
 					$active = $(this);
 					$content = $(Materialize.escapeHash(this.hash));
-					$links = $this.find('li.tab a');
+					$links = $this.find('li.nav-item > a');
 					var activeRect = $active.position();
 
 					// Make the tab active.
@@ -14029,7 +14034,11 @@ Waves.init(); /* FORMS */
 					// Swap content
 					if (options.swipeable) {
 						if ($tabs_content.length) {
-							$tabs_content.carousel('set', index);
+							$tabs_content.carousel('set', index, function () {
+								if (typeof (options.onShow) === "function") {
+									options.onShow.call($this[0], $content);
+								}
+							});
 						}
 					} else {
 						if ($content !== undefined) {
@@ -14078,6 +14087,6 @@ Waves.init(); /* FORMS */
 	};
 
 	$(document).ready(function () {
-		$('ul.tabs').tabs();
+		$('ul.tabs.tabs-material').tabs();
 	});
 }(jQuery));
