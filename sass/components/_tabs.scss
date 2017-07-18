@@ -1,107 +1,171 @@
-    .tabs {
-        margin-bottom: 0;
-        // padding-left: 0;
-        list-style: none;
-        border: 0;
-        .indicator {
-            position: absolute;
-            bottom: 0;
-            height: 2px;
-            background-color: $tabs-underline-color;
-            will-change: left, right;
-            >li {
-                >a {
-                    &.disabled,
-                    &.disabled:hover {
-                        color: rgba(grey, .7); // cursor: default;
-                        cursor: not-allowed;
-                    }
-                }
+.tab-primary {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    letter-spacing: 0.5px;
+    transition:  all 0.9s ease-in;
+    t
+    .nav-item {
+        margin-bottom: -1px; 
+    }
+    .nav-link {
+        border-top-right-radius: 2px;
+        color: $primary-color-light;
+        transition:  all 0.9s ease-in;
+        &:hover,
+        &:focus {
+            transition:  all 0.9s ease-in;
+            border-bottom: 2px solid $primary-color-light;
+        }
+        &.disabled {
+            color: grey;
+            background-color: transparent;
+            border-color: transparent;
+        }
+    }
+    .nav-link.active,
+    .nav-item.show .nav-link {
+        color: $primary-color;
+        border-bottom: 2px solid $primary-color;
+    }
+    .dropdown-menu {
+        margin-top: 0; // Remove the top rounded corners here since there is a hard edge above the menu
+        border-top-left-radius: 2px;
+        border-top-right-radius: 2px;
+    }
+}
+
+// .tabs-style-bar nav {
+.tabs-style-bar {
+    background: rgba(40, 44, 42, 0.05);
+    border: 4px solid transparent;
+    .nav-item {
+        .nav-link {
+            // margin: 0 2px;
+            background-color: #f7f7f7;
+            color: #74777b; //Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+            transition: background-color 0.2s, color 0.2s;
+            &:hover {
+                color: #2cc185;
             }
-        }
-        >li>a>img {
-            max-width: none;
-        }
-    }
-
-    .tabs-material {
-        overflow-x: hidden;
-        overflow-y: hidden;
-        height: 48px;
-        width: 100%;
-        background-color: $tabs-bg-color;
-        margin: 0 auto;
-        white-space: nowrap;
-    }
-
-    .tab-content {
-        >.tab-pane {
-            display: none;
-        }
-        >.active {
-            display: block;
-        }
-    }
-
-    .tabs-1 {
-        >li {
-            // Actual tabs (as links)
-            margin-bottom: -1px;
-            display: inline-block;
-            text-align: center;
-            line-height: 48px;
-            height: 48px;
-            padding: 0;
-            margin: 0;
-            text-transform: uppercase;
-            >a {
-                margin-right: 2px;
-                line-height: inherit;
-                border: 1px solid transparent; // border-radius: 2px 2px 0 0; 
-                color: rgba($tabs-text-color, .7);
-                display: block;
-                width: 100%;
-                height: 100%;
-                padding: 0 24px;
-                font-size: 14px;
-                text-overflow: ellipsis;
-                overflow: hidden;
-                white-space: nowrap;
-                &:hover,
-                &:focus {
-                    color: $primary-color; // border-color: transparent;
-                    background-color: transparent;
-                    color: $tabs-text-color;
-                }
-                &.disabled,
-                &.disabled:hover {
-                    color: rgba(grey, .7); // cursor: default;
-                    cursor: not-allowed;
-                }
+            &:focus {
+                color: #2cc185;
             }
-        } // .nav-item {
-        //     a {
-        //         &:hover,
-        //         &.active {}
-        //         &.disabled,
-        //         &.disabled:hover {
-        //             color: rgba(grey, .7); // cursor: default;
-        //             cursor: not-allowed;
-        //         }
-        //     }
-        // }
-    } // Fixed sideNav hide on smaller
-    @media #{$medium-and-down} {
-        .tabs-material {
-            display: flex;
-            li {
-                -webkit-box-flex: 1;
-                -webkit-flex-grow: 1;
-                -ms-flex-positive: 1;
-                flex-grow: 1;
-                a {
-                    padding: 0 12px;
-                }
+            i {
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                font-weight: 500;
+                font-size: 0.6em;
+            }
+            &.active {
+                background: #2cc185;
+                color: #fff;
             }
         }
     }
+}
+
+// }
+// .tabs {
+//     margin-bottom: 0; // padding-left: 0;
+//     list-style: none;
+//     border: 0;
+//     .indicator {
+//         position: absolute;
+//         bottom: 0;
+//         height: 2px;
+//         background-color: $tabs-underline-color;
+//         will-change: left, right;
+//         >li {
+//             >a {
+//                 &.disabled,
+//                 &.disabled:hover {
+//                     color: rgba(grey, .7); // cursor: default;
+//                     cursor: not-allowed;
+//                 }
+//             }
+//         }
+//     }
+//     >li>a>img {
+//         max-width: none;
+//     }
+// }
+// .tabs-material {
+//     overflow-x: hidden;
+//     overflow-y: hidden;
+//     height: 48px;
+//     width: 100%;
+//     background-color: $tabs-bg-color;
+//     margin: 0 auto;
+//     white-space: nowrap;
+// }
+// .tab-content {
+//     >.tab-pane {
+//         display: none;
+//     }
+//     >.active {
+//         display: block;
+//     }
+// }
+// .tabs-1 {
+//     >li {
+//         // Actual tabs (as links)
+//         margin-bottom: -1px;
+//         display: inline-block;
+//         text-align: center;
+//         line-height: 48px;
+//         height: 48px;
+//         padding: 0;
+//         margin: 0;
+//         text-transform: uppercase;
+//         >a {
+//             margin-right: 2px;
+//             line-height: inherit;
+//             border: 1px solid transparent; // border-radius: 2px 2px 0 0; 
+//             color: rgba($tabs-text-color, .7);
+//             display: block;
+//             width: 100%;
+//             height: 100%;
+//             padding: 0 24px;
+//             font-size: 14px;
+//             text-overflow: ellipsis;
+//             overflow: hidden;
+//             white-space: nowrap;
+//             &:hover,
+//             &:focus {
+//                 color: $primary-color; // border-color: transparent;
+//                 background-color: transparent;
+//                 color: $tabs-text-color;
+//             }
+//             &.disabled,
+//             &.disabled:hover {
+//                 color: rgba(grey, .7); // cursor: default;
+//                 cursor: not-allowed;
+//             }
+//         }
+//     } // .nav-item {
+//     //     a {
+//     //         &:hover,
+//     //         &.active {}
+//     //         &.disabled,
+//     //         &.disabled:hover {
+//     //             color: rgba(grey, .7); // cursor: default;
+//     //             cursor: not-allowed;
+//     //         }
+//     //     }
+//     // }
+// } // Fixed sideNav hide on smaller
+// @media #{$medium-and-down} {
+//     .tabs-material {
+//         display: flex;
+//         li {
+//             -webkit-box-flex: 1;
+//             -webkit-flex-grow: 1;
+//             -ms-flex-positive: 1;
+//             flex-grow: 1;
+//             a {
+//                 padding: 0 12px;
+//             }
+//         }
+//     }
+// }
