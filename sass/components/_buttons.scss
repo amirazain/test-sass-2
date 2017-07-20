@@ -6,23 +6,28 @@ button:focus {
 
 // *** Button: Font Size *** //
 .btn {
-  font-size: .8rem;
+  font-size: .8em;
   padding: .85rem 2.13rem;
-  
   &.btn-lg {
-    font-size: 1rem;
-    padding: 1rem 2.4rem;
+    font-size: 1em;
+    padding: 1.1rem 2.3rem;
+    &.btn-table {
+      
+      padding: .85rem .85rem;
+    }
   }
   &.btn-md {
-    font-size: .8rem;
-    padding: .95rem 2.13rem;
-    
+    font-size: .9em;
+    padding: .9rem 2.1rem;
+    &.btn-table {
+      padding: .7rem .7rem;
+    }
   }
   &.btn-sm {
-    font-size: .7rem;
-    padding: .7rem 1.3rem;
+    font-size: .7em;
+    padding: .6rem 1.2rem;
     &.btn-table {
-      padding: .5rem .9rem;
+      padding: .5rem .5rem;
     }
   }
 }
@@ -33,7 +38,7 @@ button:focus {
   border: 0;
   @extend .z-depth-1;
   transition: .2s ease-out;
-  color: #fff ;
+  color: #fff;
   margin: 6px;
   white-space: normal !important;
   word-wrap: break-word;
@@ -320,9 +325,7 @@ button:focus {
   }
 }
 
-
 // **Button Outline Material Color**
-
 .btn-outline-elegant {
   border: 2px solid $elegant-color!important;
   color: $elegant-color!important;
@@ -811,7 +814,7 @@ button:focus {
 .btn-large {
   outline: 0;
   .fa {
-    font-size: $button-font-size-shared;
+    // font-size: $button-font-size-shared;
     line-height: inherit;
   }
 }
@@ -837,7 +840,7 @@ button:focus {
     width: $button-height * 1;
     height: $button-height * 1;
     i {
-      font-size: $button-large-icon-font-size* 0.7 ;
+      font-size: $button-large-icon-font-size* 0.7;
       line-height: $button-height*1;
     }
   }
@@ -971,7 +974,7 @@ button.btn-floating {
     text-align: center;
     position: absolute;
     bottom: 64px;
-    margin: 0; 
+    margin: 0;
     visibility: hidden;
     li {
       margin-bottom: 15px;
@@ -998,7 +1001,7 @@ button.btn-floating {
   @extend .btn;
   box-shadow: none!important;
   background-color: transparent!important;
-  color: $button-color-flat ;
+  color: $button-color-flat;
   cursor: pointer;
   transition: background-color .2s;
   &:active,
@@ -1011,12 +1014,23 @@ button.btn-floating {
     box-shadow: none!important;
   }
   &:active {
-    background-color: rgba(0, 0, 0, .3)!important;
-    background-color: transparent;
+    background-color: rgba(0, 0, 0, .3)!important; // background-color: transparent;
   }
   &.disabled {
     background-color: transparent !important;
     color: $button-color-disabled !important;
     cursor: default;
+  }
+}
+
+.btn-table {
+  font-size: .8em;
+  padding: .6rem .6rem;
+  // text-transform: capitalize;
+  letter-spacing: 0.6px;
+  .fa {
+    font-size: 1.4em;
+    display: flex;
+    flex-direction: column;
   }
 }

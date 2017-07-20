@@ -478,12 +478,17 @@
     <script type="text/javascript" src="nouislider/nouislider.js"></script>
     <!--<script type="text/javascript" src="croppie.js"></script>-->
     <!--<script type="text/javascript" src="cropper.js"></script>-->
+    <!--rateyo   -->
     <script>
         $(function () {
 
             $(function () {
 
-                var $rateYo = $("#rateYo").rateYo();
+                var $rateYo = $("#rateYo").rateYo({
+                    normalFill: "#D8D8C1",
+                    spacing: "2px",
+                    starWidth: "20px"
+                })
 
                 $("#getRating").click(function () {
 

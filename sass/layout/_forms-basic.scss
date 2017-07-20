@@ -188,12 +188,12 @@ textarea {
     height: 3rem;
     background-color: transparent;
     &.md-textarea {
-        overflow-y: auto;
+        overflow-y: hidden;
         /* prevents scroll bar flash */
         padding: 0.8rem 0;
         /* prevents text jump on Enter keypress */
         resize: none;
-        min-height: 4rem;
+        min-height: 2rem;
     }
 } // For textarea autoresize
 .hiddendiv {
@@ -220,9 +220,7 @@ textarea {
     }
     .form-control {
         color: #fff;
-    } // label{
-    //   color: #fff;
-    // }
+    }
 }
 
 .input-light-bg {
