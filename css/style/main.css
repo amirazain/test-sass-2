@@ -8372,18 +8372,18 @@ textarea.md-textarea.input-alternate:focus {
 label {
   font-size: 0.8rem;
   color: darken #ccc, 90%;
-  margin-bottom: 0.2em; }
+  margin-bottom: 0.2rem; }
 
 .form-control {
   padding: 0;
-  padding-bottom: 0.6rem;
-  padding-top: 0.5rem;
+  padding-bottom: 0.1rem;
+  padding-top: 0.2rem;
   font-size: 1rem;
   line-height: 1.5;
   background-color: transparent;
   background-image: none;
   border-radius: 0;
-  margin-top: 0.2rem;
+  margin-top: 0.3rem;
   margin-bottom: 1rem; }
 
 .form-control:focus {
@@ -8424,28 +8424,29 @@ label {
 
 .md-form .prefix {
   position: absolute;
-  width: 3rem;
+  width: 2.5rem;
   font-size: 2rem;
   -webkit-transition: color 0.2s;
   -moz-transition: color 0.2s;
   -o-transition: color 0.2s;
   -ms-transition: color 0.2s;
-  transition: color 0.2s; }
+  transition: color 0.2s;
+  margin-top: 0.5rem; }
 
 .md-form .prefix.active {
   color: #4285F4; }
 
 .md-form .prefix ~ input,
 .md-form .prefix ~ textarea {
-  margin-left: 3rem;
+  margin-left: 2.5rem;
   width: 92%;
   width: calc(100% - 3rem); }
 
 .md-form .prefix ~ textarea {
-  padding-top: .8rem; }
+  padding-top: .3rem; }
 
 .md-form .prefix ~ label {
-  margin-left: 3rem; }
+  margin-left: 2.5rem; }
 
 @media only screen and (max-width: 992px) {
   .md-form .prefix ~ input {
@@ -8486,16 +8487,25 @@ label {
 
 textarea {
   width: 100%;
-  height: 3rem;
+  height: 3.5rem;
   background-color: transparent; }
 
 textarea.md-textarea {
-  overflow-y: hidden;
+  overflow-y: auto;
   /* prevents scroll bar flash */
-  padding: 0.8rem 0;
+  padding: 0.7rem 0;
   /* prevents text jump on Enter keypress */
   resize: none;
   min-height: 2rem; }
+
+textarea label.active {
+  font-size: 0.8rem;
+  -webkit-transform: translateY(-140%);
+  -moz-transform: translateY(-140%);
+  -ms-transform: translateY(-140%);
+  -o-transform: translateY(-140%);
+  transform: translateY(-140%);
+  padding-bottom: 0.3rem; }
 
 .hiddendiv {
   display: none;
@@ -8506,8 +8516,11 @@ textarea.md-textarea {
   padding-top: 1.2rem;
   /* prevents text jump on Enter keypress */ }
 
+.input-dark-bg {
+  padding: 0; }
+
 .input-dark-bg input[type=text] {
-  border-bottom: 1px solid #fff; }
+  border-bottom: 1px solid #ddd; }
 
 .input-dark-bg input[type=text]::-webkit-input-placeholder {
   color: #fff !important;
@@ -8527,6 +8540,30 @@ textarea.md-textarea {
 
 .input-dark-bg input[type=text]::placeholder {
   color: #fff !important;
+  font-weight: 300; }
+
+.input-dark-bg input[type=text]:focus, .input-dark-bg input[type=text]:active {
+  background: #fff;
+  color: #1C2331; }
+
+.input-dark-bg input[type=text]:focus::-webkit-input-placeholder, .input-dark-bg input[type=text]:active::-webkit-input-placeholder {
+  color: grey !important;
+  font-weight: 300; }
+
+.input-dark-bg input[type=text]:focus:-moz-placeholder, .input-dark-bg input[type=text]:active:-moz-placeholder {
+  color: grey !important;
+  font-weight: 300; }
+
+.input-dark-bg input[type=text]:focus::-moz-placeholder, .input-dark-bg input[type=text]:active::-moz-placeholder {
+  color: grey !important;
+  font-weight: 300; }
+
+.input-dark-bg input[type=text]:focus::-ms-placeholder, .input-dark-bg input[type=text]:active::-ms-placeholder {
+  color: grey !important;
+  font-weight: 300; }
+
+.input-dark-bg input[type=text]:focus::placeholder, .input-dark-bg input[type=text]:active::placeholder {
+  color: grey !important;
   font-weight: 300; }
 
 .input-dark-bg .form-control {

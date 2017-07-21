@@ -90,19 +90,19 @@ textarea.md-textarea {
 label {
     font-size: $label-font-size;
     color: darken ($input-border-color, 90%);
-    margin-bottom: 0.2em;
+    margin-bottom: 0.2rem;
 }
 
 .form-control {
     padding: 0;
-    padding-bottom: 0.6rem;
-    padding-top: 0.5rem;
+    padding-bottom: 0.1rem;
+    padding-top: 0.2rem;
     font-size: 1rem;
     line-height: 1.5;
     background-color: transparent;
     background-image: none;
     border-radius: 0;
-    margin-top: 0.2rem;
+    margin-top: 0.3rem;
     margin-bottom: 1rem;
     &:focus {
         background: transparent;
@@ -135,24 +135,25 @@ label {
     } // Prefix Icons
     .prefix {
         position: absolute;
-        width: 3rem;
+        width: 2.5rem;
         font-size: 2rem;
         @include transition(color .2s);
+        margin-top: 0.5rem;
         &.active {
             color: $input-focus-color;
         }
     }
     .prefix~input,
     .prefix~textarea {
-        margin-left: 3rem;
+        margin-left: 2.5rem;
         width: 92%;
         width: calc(100% - 3rem);
     }
     .prefix~textarea {
-        padding-top: .8rem;
+        padding-top: .3rem;
     }
     .prefix~label {
-        margin-left: 3rem;
+        margin-left: 2.5rem; // margin: auto;
     }
     @media #{$medium-and-down} {
         .prefix~input {
@@ -185,16 +186,21 @@ label {
 } // Default textarea
 textarea {
     width: 100%;
-    height: 3rem;
+    height: 3.5rem;
     background-color: transparent;
     &.md-textarea {
-        overflow-y: hidden;
+        overflow-y: auto;
         /* prevents scroll bar flash */
-        padding: 0.8rem 0;
+        padding: 0.7rem 0; // padding-top: 1rem;
         /* prevents text jump on Enter keypress */
         resize: none;
         min-height: 2rem;
     }
+    label.active {
+        font-size: $label-font-size;
+        @include transform(translateY(-140%));
+        padding-bottom: 0.3rem;
+    } 
 } // For textarea autoresize
 .hiddendiv {
     display: none;
@@ -211,11 +217,22 @@ textarea {
     //     color: #fff !important;
     //     font-weight: 300;
     // }
+    padding: 0;
     input[type=text] {
-        border-bottom: 1px solid #fff;
+        border-bottom: 1px solid #ddd;
         @include placeholder {
             color: #fff !important;
             font-weight: 300;
+        }
+        &:focus,
+        &:active {
+            // margin: 0 2px;
+            background: #fff;
+            @include placeholder {
+                color: grey !important;
+                font-weight: 300;
+            }
+            color: #1C2331
         }
     }
     .form-control {
@@ -1174,18 +1191,3 @@ input[type=range]:focus::-ms-fill-upper {
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
