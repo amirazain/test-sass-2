@@ -2354,6 +2354,13 @@ section {
 .avatar.avatar-brand.avatar-border, .chip img.avatar-brand.avatar-border {
   border: 1.7px solid #fff; }
 
+.avatar.avatar-nav, .chip img.avatar-nav {
+  height: 50px;
+  width: 50px; }
+
+.avatar.avatar-nav.avatar-border, .chip img.avatar-nav.avatar-border {
+  border: 1.7px solid #fff; }
+
 @font-face {
   font-family: "Roboto";
   src: local(Roboto Thin), url("../fonts/roboto/Roboto-Thin.eot");
@@ -5816,6 +5823,7 @@ button:focus {
   transition: .2s ease-out; }
 
 .btn-elegant {
+  color: #fff !important;
   background: #2E2E2E; }
 
 .btn-elegant:focus, .btn-elegant:hover {
@@ -5825,6 +5833,7 @@ button:focus {
   background-color: black !important; }
 
 .btn-unique {
+  color: #fff !important;
   background: #1C2331; }
 
 .btn-unique:focus, .btn-unique:hover {
@@ -5834,6 +5843,7 @@ button:focus {
   background-color: black !important; }
 
 .btn-pink {
+  color: #fff !important;
   background: #e91e63; }
 
 .btn-pink:focus, .btn-pink:hover {
@@ -5843,6 +5853,7 @@ button:focus {
   background-color: #930e3b !important; }
 
 .btn-purple {
+  color: #fff !important;
   background: #4a148c; }
 
 .btn-purple:focus, .btn-purple:hover {
@@ -5852,6 +5863,7 @@ button:focus {
   background-color: #1b0733 !important; }
 
 .btn-deep-purple {
+  color: #fff !important;
   background: #311b92; }
 
 .btn-deep-purple:focus, .btn-deep-purple:hover {
@@ -5861,6 +5873,7 @@ button:focus {
   background-color: #140b3c !important; }
 
 .btn-indigo {
+  color: #fff !important;
   background: #1a237e; }
 
 .btn-indigo:focus, .btn-indigo:hover {
@@ -5870,6 +5883,7 @@ button:focus {
   background-color: #090c29 !important; }
 
 .btn-cyan {
+  color: #fff !important;
   background: #00acc1; }
 
 .btn-cyan:focus, .btn-cyan:hover {
@@ -5879,6 +5893,7 @@ button:focus {
   background-color: #00515b !important; }
 
 .btn-light-green {
+  color: #fff !important;
   background: #7cb342; }
 
 .btn-light-green:focus, .btn-light-green:hover {
@@ -5888,6 +5903,7 @@ button:focus {
   background-color: #486827 !important; }
 
 .btn-dark-green {
+  color: #fff !important;
   background: #007E33; }
 
 .btn-dark-green:focus, .btn-dark-green:hover {
@@ -5897,6 +5913,7 @@ button:focus {
   background-color: #00180a !important; }
 
 .btn-lime {
+  color: #fff !important;
   background: #afb42b; }
 
 .btn-lime:focus, .btn-lime:hover {
@@ -5906,6 +5923,7 @@ button:focus {
   background-color: #5f6217 !important; }
 
 .btn-yellow {
+  color: #fff !important;
   background: #fbc02d; }
 
 .btn-yellow:focus, .btn-yellow:hover {
@@ -5915,6 +5933,7 @@ button:focus {
   background-color: #be8904 !important; }
 
 .btn-amber {
+  color: #fff !important;
   background: #ff6f00; }
 
 .btn-amber:focus, .btn-amber:hover {
@@ -5924,6 +5943,7 @@ button:focus {
   background-color: #994300 !important; }
 
 .btn-orange {
+  color: #fff !important;
   background: #e65100; }
 
 .btn-orange:focus, .btn-orange:hover {
@@ -5933,6 +5953,7 @@ button:focus {
   background-color: #802d00 !important; }
 
 .btn-deep-orange {
+  color: #fff !important;
   background: #bf360c; }
 
 .btn-deep-orange:focus, .btn-deep-orange:hover {
@@ -5942,6 +5963,7 @@ button:focus {
   background-color: #5f1b06 !important; }
 
 .btn-brown {
+  color: #fff !important;
   background: #6d4c41; }
 
 .btn-brown:focus, .btn-brown:hover {
@@ -5951,6 +5973,7 @@ button:focus {
   background-color: #2d1f1b !important; }
 
 .btn-blue-grey {
+  color: #fff !important;
   background: #607d8b; }
 
 .btn-blue-grey:focus, .btn-blue-grey:hover {
@@ -5960,6 +5983,7 @@ button:focus {
   background-color: #36474f !important; }
 
 .btn-teal {
+  color: #fff !important;
   background: #009688; }
 
 .btn-teal:focus, .btn-teal:hover {
@@ -5986,9 +6010,6 @@ button:focus {
 .card .btn-action:disabled,
 .btn-floating[disabled],
 .card [disabled].btn-action,
-.btn-large.disabled,
-.btn-large:disabled,
-.btn-large[disabled],
 .btn.disabled,
 .disabled.btn-flat,
 .btn:disabled,
@@ -6010,9 +6031,6 @@ button:focus {
 .card .btn-action:disabled:hover,
 .btn-floating[disabled]:hover,
 .card [disabled].btn-action:hover,
-.btn-large.disabled:hover,
-.btn-large:disabled:hover,
-.btn-large[disabled]:hover,
 .btn.disabled:hover,
 .disabled.btn-flat:hover,
 .btn:disabled:hover,
@@ -6025,14 +6043,12 @@ button:focus {
 .btn, .btn-flat,
 .btn-flat,
 .btn-floating,
-.card .btn-action,
-.btn-large {
+.card .btn-action {
   outline: 0; }
 
 .btn .fa, .btn-flat .fa,
 .btn-flat .fa,
-.btn-floating .fa, .card .btn-action .fa,
-.btn-large .fa {
+.btn-floating .fa, .card .btn-action .fa {
   line-height: inherit; }
 
 .btn:focus, .btn-flat:focus,
@@ -6197,6 +6213,7 @@ button.btn-floating, .card button.btn-action {
   transform: scale(0); }
 
 .btn-flat {
+  font-weight: 500;
   box-shadow: none !important;
   background-color: transparent !important;
   color: #343434;
@@ -6207,11 +6224,11 @@ button.btn-floating, .card button.btn-action {
   background-color: transparent !important; }
 
 .btn-flat:focus, .btn-flat:hover {
-  background-color: rgba(0, 0, 0, 0.2) !important;
+  background-color: rgba(128, 128, 128, 0.08) !important;
   box-shadow: none !important; }
 
 .btn-flat:active {
-  background-color: rgba(0, 0, 0, 0.3) !important; }
+  background-color: rgba(128, 128, 128, 0.08) !important; }
 
 .btn-flat.disabled {
   background-color: transparent !important;

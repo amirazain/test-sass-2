@@ -12,7 +12,6 @@ button:focus {
     font-size: 1em;
     padding: 1.1rem 2.3rem;
     &.btn-table {
-      
       padding: .85rem .85rem;
     }
   }
@@ -566,6 +565,7 @@ button:focus {
 
 // **Button Material Color**
 .btn-elegant {
+  color: #fff!important;
   background: $elegant-color;
   &:focus,
   &:hover {
@@ -578,6 +578,7 @@ button:focus {
 }
 
 .btn-unique {
+  color: #fff!important;
   background: $unique-color-dark;
   &:focus,
   &:hover {
@@ -590,6 +591,7 @@ button:focus {
 }
 
 .btn-pink {
+  color: #fff!important;
   background: #e91e63;
   &:focus,
   &:hover {
@@ -602,6 +604,7 @@ button:focus {
 }
 
 .btn-purple {
+  color: #fff!important;
   background: #4a148c;
   &:focus,
   &:hover {
@@ -614,6 +617,7 @@ button:focus {
 }
 
 .btn-deep-purple {
+  color: #fff!important;
   background: #311b92;
   &:focus,
   &:hover {
@@ -626,6 +630,7 @@ button:focus {
 }
 
 .btn-indigo {
+  color: #fff!important;
   background: #1a237e;
   &:focus,
   &:hover {
@@ -638,6 +643,7 @@ button:focus {
 }
 
 .btn-cyan {
+  color: #fff!important;
   background: #00acc1;
   &:focus,
   &:hover {
@@ -650,6 +656,7 @@ button:focus {
 }
 
 .btn-light-green {
+  color: #fff!important;
   background: #7cb342;
   &:focus,
   &:hover {
@@ -662,6 +669,7 @@ button:focus {
 }
 
 .btn-dark-green {
+  color: #fff!important;
   background: #007E33;
   &:focus,
   &:hover {
@@ -674,6 +682,7 @@ button:focus {
 }
 
 .btn-lime {
+  color: #fff!important;
   background: #afb42b;
   &:focus,
   &:hover {
@@ -686,6 +695,7 @@ button:focus {
 }
 
 .btn-yellow {
+  color: #fff!important;
   background: #fbc02d;
   &:focus,
   &:hover {
@@ -698,6 +708,7 @@ button:focus {
 }
 
 .btn-amber {
+  color: #fff!important;
   background: #ff6f00;
   &:focus,
   &:hover {
@@ -710,6 +721,7 @@ button:focus {
 }
 
 .btn-orange {
+  color: #fff!important;
   background: #e65100;
   &:focus,
   &:hover {
@@ -722,6 +734,7 @@ button:focus {
 }
 
 .btn-deep-orange {
+  color: #fff!important;
   background: #bf360c;
   &:focus,
   &:hover {
@@ -734,6 +747,7 @@ button:focus {
 }
 
 .btn-brown {
+  color: #fff!important;
   background: #6d4c41;
   &:focus,
   &:hover {
@@ -746,6 +760,7 @@ button:focus {
 }
 
 .btn-blue-grey {
+  color: #fff!important;
   background: #607d8b;
   &:focus,
   &:hover {
@@ -758,6 +773,7 @@ button:focus {
 }
 
 .btn-teal {
+  color: #fff!important;
   background: #009688;
   &:focus,
   &:hover {
@@ -790,9 +806,6 @@ button:focus {
 .btn-floating.disabled,
 .btn-floating:disabled,
 .btn-floating[disabled],
-.btn-large.disabled,
-.btn-large:disabled,
-.btn-large[disabled],
 .btn.disabled,
 .btn:disabled,
 .btn[disabled] {
@@ -810,8 +823,7 @@ button:focus {
 // Shared icon styles
 .btn,
 .btn-flat,
-.btn-floating,
-.btn-large {
+.btn-floating {
   outline: 0;
   .fa {
     // font-size: $button-font-size-shared;
@@ -999,6 +1011,7 @@ button.btn-floating {
 // Flat button
 .btn-flat {
   @extend .btn;
+  font-weight: 500;
   box-shadow: none!important;
   background-color: transparent!important;
   color: $button-color-flat;
@@ -1010,11 +1023,11 @@ button.btn-floating {
   }
   &:focus,
   &:hover {
-    background-color: rgba(0, 0, 0, .2)!important;
+    background-color: rgba(128,128,128, 0.08)!important;
     box-shadow: none!important;
   }
   &:active {
-    background-color: rgba(0, 0, 0, .3)!important; // background-color: transparent;
+    background-color: rgba(128,128,128, 0.08)!important; // background-color: transparent;
   }
   &.disabled {
     background-color: transparent !important;
@@ -1025,8 +1038,7 @@ button.btn-floating {
 
 .btn-table {
   font-size: .8em;
-  padding: .6rem .6rem;
-  // text-transform: capitalize;
+  padding: .6rem .6rem; // text-transform: capitalize;
   letter-spacing: 0.6px;
   .fa {
     font-size: 1.4em;
