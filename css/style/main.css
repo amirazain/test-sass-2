@@ -5465,10 +5465,9 @@ button:focus {
   color: #fff; }
 
 .btn .fa, .btn-flat .fa {
-  font-size: 1.1rem;
+  font-size: 1.2em;
   position: relative;
-  vertical-align: middle;
-  margin-top: -2px; }
+  vertical-align: middle; }
 
 .btn .fa.right, .btn-flat .fa.right {
   margin-left: 3px; }
